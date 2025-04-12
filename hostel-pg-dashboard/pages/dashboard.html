@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HMS Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #121212;
+      color: white;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .sidebar {
+      width: 220px;
+      background: #1e1e1e;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sidebar h2 {
+      color: #00ffff;
+      margin-bottom: 10px;
+    }
+
+    .sidebar nav a {
+      color: #ccc;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 8px;
+      display: block;
+      transition: 0.2s;
+    }
+
+    .sidebar nav a:hover {
+      background-color: #333;
+      color: white;
+    }
+
+    .main {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    canvas {
+      max-width: 80px;
+      margin: 0 auto;
+    }
+
+    .info {
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+
+    .student {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .student img {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+    }
+
+    .emergency {
+      background-color: #a00;
+      text-align: center;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .emergency button {
+      background-color: red;
+      border: none;
+      padding: 8px 16px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <!-- <h2>💡 HMS</h2> -->
+    <nav>
+      <a href="#">📊 Analytics</a>
+      <a href="#">👨‍🎓 Students</a>
+      <a href="#">⚠️ Complaints</a>
+      <a href="#">📦 Stock</a>
+      <a href="#">👥 Users</a>
+      <a href="#">🍽️ Meals</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="main">
+    <div class="grid">
+      <!-- Hostel Occupancy -->
+      <div class="card">
+        <h3>Hostel 1</h3>
+        <canvas id="h1"></canvas>
+        <div class="info">50%</div>
+      </div>
+      <div class="card">
+        <h3>Hostel 2</h3>
+        <canvas id="h2"></canvas>
+        <div class="info">75%</div>
+      </div>
+      <div class="card">
+        <h3>Hostel 3</h3>
+        <canvas id="h3"></canvas>
+        <div class="info">95%</div>
+      </div>
+
+      <!-- Fees Collection -->
+      <div class="card" style="grid-column: span 2;">
+        <h3>Fees Collection</h3>
+        <canvas id="fees"></canvas>
+        <p>Expected: ₹52,00,000</p>
+        <p>Collected: ₹26,00,000</p>
+        <p>Remaining: ₹15,60,000</p>
+        <p>Overdue: ₹10,40,000</p>
+      </div>
+
+      <!-- Complaints -->
+      <div class="card">
+        <h3>Complaints</h3>
+        <p>Total: 158</p>
+        <p>Resolved: 96</p>
+        <p>Open: 62</p>
+      </div>
+
+      <!-- Emergency -->
+      <div class="card emergency">
+        <h3>Emergency Only</h3>
+        <button>EMERGENCY</button>
+      </div>
+
+      <!-- Student Update -->
+      <div class="card" style="grid-column: span 2;">
+        <h3>Student Updates</h3>
+        <div class="student"><img src="https://i.pravatar.cc/30?img=1" /> Ayush Kumar - 12:30</div>
+        <div class="student"><img src="https://i.pravatar.cc/30?img=2" /> Abhay Kumar - 12:30</div>
+        <div class="student"><img src="https://i.pravatar.cc/30?img=3" /> Ayush - 12:30</div>
+        <div class="student"><img src="https://i.pravatar.cc/30?img=4" /> Ramakant Sharma - 12:30</div>
+        <div class="student"><img src="https://i.pravatar.cc/30?img=5" /> Ramakant Sharma - 12:30</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart JS -->
+  <script>
+    const makeChart = (id, percent, color) => {
+      new Chart(document.getElementById(id), {
+        type: 'doughnut',
+        data: {
+          datasets: [{
+            data: [percent, 100 - percent],
+            backgroundColor: [color, '#333'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          cutout: '70%',
+          plugins: { legend: { display: false } }
+        }
+      });
+    };
+
+    makeChart('h1', 50, '#00FFFF');
+    makeChart('h2', 75, '#FFFF00');
+    makeChart('h3', 95, '#FF00FF');
+    makeChart('fees', 50, '#00FFFF');
+  </script>
+
+</body>
+</html>

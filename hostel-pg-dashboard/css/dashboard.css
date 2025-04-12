@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #111;
+    color: #fff;
+  }
+  
+  .dashboard-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .card {
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    color: #fff;
+  }
+  
+  .circle-chart {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 10px;
+  }
+  
+  .progress-card {
+    width: 120px;
+    text-align: center;
+  }
+  
+  .progress-card .label {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  .finance-card {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .finance-text {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .small-box {
+    width: 200px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .bar-container {
+    width: 90%;
+    height: 12px;
+    background-color: #333;
+    border-radius: 10px;
+    margin: 8px auto;
+    overflow: hidden;
+  }
+  
+  .bar-fill {
+    height: 100%;
+    background: linear-gradient(to right, yellow 60%, cyan 40%);
+  }
+  
+  .student-card {
+    width: 200px;
+    height: 100px;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
