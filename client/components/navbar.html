@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="logo-container">
+          <div class="status-dot"></div>
+          <span class="brand-text">SU</span>
+        </div>
+        <div class="nav-content">
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="../pages/dashboard.html" target="content">
+                        <img src="../components/icon/dashboard.svg" alt="">
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../pages/rooms/room.html" target="content">
+                        <img src="../components/icon/room.svg" alt="">
+                        <span>Rooms</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../pages/attendance/attendance.html" target="content">
+                        <img src="../components/icon/attendance.svg" alt="">
+                        <span>Attendance</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../pages/accounts/account.html" target="content">
+                        <img src="../components/icon/account.svg" alt="">
+                        <span>Accounts</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="../pages/maintenance/maintenance.html" target="content">
+                        <img src="../components/icon/maintenance.svg" alt="">
+                        <span>Maintenance</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="nav-actions"> 
+                <button class="icon-button calendar" id="calendarBtn">📅</button>
+                <button class="icon-button notifications">🔔</button>
+                <button class="profile-button">👤</button>
+            </div>
+            <div class="calendar-container" id="calendarContainer">
+                <div class="calendar-header">
+                    <button id="prevMonth">❮</button>
+                    <h2 id="monthDisplay"></h2>
+                    <button id="nextMonth">❯</button>
+                </div>
+                <div class="calendar-weekdays">
+                    <div>Sun</div><div>Mon</div><div>Tue</div>
+                    <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+                </div>
+                <div class="calendar-days" id="calendarDays"></div>
+            </div>
+        </div>
+    </nav>
+    <script src="navbar.js"></script>
+</body>
+</html>
