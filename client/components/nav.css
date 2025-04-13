@@ -1,0 +1,304 @@
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    font-size: 100%;
+  }
+  
+  body {
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 75vh;
+  }
+  
+  /* Main Navigation */
+  .main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background-color: rgba(32, 32, 32, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 4.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  .nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin-right: 1.5rem;
+  }
+  
+  /* Logo Section */
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0 2rem;
+  }
+  
+  .status-dot {
+    width: 1.5rem;
+    height: 1.5rem;
+    background: linear-gradient(45deg, #22d3ee, #06b6d4);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+    transition: all 0.3s ease;
+  }
+  
+  .status-dot:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.6);
+  }
+  
+  .brand-text {
+    font-size: 1.75rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #fff, #22d3ee);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* Navigation Menu */
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-right: 3rem;
+  }
+  
+  .nav-item {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-item a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .nav-item img {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  
+  .nav-item::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #22d3ee, #06b6d4);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-item:hover::after {
+    width: 100%;
+  }
+  
+  .nav-item:hover a {
+    color: #22d3ee;
+  }
+  
+  .nav-item.active {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(34, 211, 238, 0.1) 100%
+    );
+    border-bottom: 2px solid #22d3ee;
+    border-radius: 4px 4px 0 0;
+  }
+  
+  .nav-item.active a img {
+    filter: brightness(0) saturate(100%) invert(67%) sepia(92%) saturate(866%)
+      hue-rotate(153deg) brightness(96%) contrast(98%);
+  }
+  
+  .nav-item.active a {
+    color: #22d3ee;
+  }
+  
+  /* Action Buttons */
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .icon-button {
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background-color: rgba(34, 211, 238, 0.1);
+  }
+  
+  .icon-button:hover {
+    background-color: rgba(34, 211, 238, 0.267);
+    color: #22d3ee;
+    transform: translateY(-2px);
+  }
+  
+  .profile-button {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: linear-gradient(45deg, #22d3ee, #06b6d4);
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(34, 211, 238, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  .profile-button:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 4px 15px rgba(34, 211, 238, 0.4);
+  }
+  
+  /* Animation */
+  @keyframes ping {
+    75%,
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+  
+  /* Frame Container Styles */
+  .frame-container {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+  }
+  
+  .navbar-frame {
+      width: 100%;
+      height: 100px;
+      border: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+  }
+  
+  .content-frame {
+      width: 100%;
+      height: calc(100vh - 100px);
+      border: none;
+      margin-top: 100px;
+      position: relative;
+      z-index: 1;
+  }
+  
+  /* Update Calendar Container */
+  .calendar-container {
+      position: fixed;
+      top: 70px;
+      right: 120px;
+      z-index: 1000;
+      display: none;
+      background: rgba(32, 32, 32, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+  }
+  
+  .calendar-container.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+  }
+  
+  .calendar-header button {
+      background: none;
+      border: none;
+      color: #22d3ee;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+  }
+  
+  .calendar-header button:hover {
+      background: rgba(34, 211, 238, 0.1);
+  }
+  
+  .calendar-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+      margin-bottom: 10px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #22d3ee;
+  }
+  
+  .calendar-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+  }
+  
+  .calendar-day {
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+  }
+  
+  .calendar-day:hover {
+      background: rgba(34, 211, 238, 0.1);
+      color: #22d3ee;
+  }
+  
+  .calendar-day.current {
+      background: #22d3ee;
+      color: black;
+  }
+  
+  .calendar-day.other-month {
+      color: #666;
+  }
+  

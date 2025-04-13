@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics</title>
+    <link rel="stylesheet" href="../../../../src/output.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="analysis.css">
+</head>
+<body>
+    <main>
+      <div class="charts-grid">
+        <div class="chart-box">
+          <h2>Hostel 1</h2>
+          <canvas id="hostel1Chart">10%</canvas>
+        </div>
+        <div class="chart-box">
+          <h2>Hostel 2</h2>
+          <canvas id="hostel2Chart">75%</canvas>
+        </div>
+        <div class="chart-box">
+          <h2>Hostel 3</h2>
+          <canvas id="hostel3Chart"></canvas>
+        </div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-box fees-chart">
+          <h2>Fees Collection</h2>
+          <canvas id="feesChart"></canvas>
+          <div class="fees-info">
+            <div>Expected: ₹52,00,000</div>
+            <div>Collected: ₹26,00,000</div>
+            <div>Remaining: ₹15,60,000</div>
+            <div>Overdue: ₹10,40,000</div>
+          </div>
+        </div>
+        <div class="chart-box">
+          <h2>Complaints</h2>
+          <div>Total Complaints: 158</div>
+          <div>Resolved: 96</div>
+          <div>Open: 62</div>
+        </div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-box scrollable-list">
+          <h2>Student Update</h2>
+          <ul>
+            <li>Ayush Kumar - 12:30</li>
+            <li>Abhay Kumar - 12:30</li>
+            <li>Ayush - 12:30</li>
+            <li>Ramakant Sharma - 12:30</li>
+            <li>Ramakant Sharma - 12:30</li>
+            <li>Ramakant Sharma - 12:30</li>
+          </ul>
+        </div>
+        <div class="chart-box emergency">
+          <p>Press only in Case of Emergency</p>
+          <button>EMERGENCY</button>
+        </div>
+      </div>
+    </main>
+    <script src="analysis.js"></script>
+</body>
+</html>

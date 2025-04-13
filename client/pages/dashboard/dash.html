@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HMS Dashboard</title>
+  <link rel="stylesheet" href="../../../src/output.css">
+  <link rel="stylesheet" href="dash.css">
 </head>
-<body>
-    <h1>Tjos ossdfjlakdskf</h1>
+<body class="font-sans">
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 p-4">
+      <nav>
+        <ul class="space-y-4">
+          <li><a href="analytics/analysis.html" target="mainContent" class="text-white active">Analytics</a></li>
+          <li><a href="students/students.html" target="mainContent" class="text-gray-400">Students</a></li>
+          <li><a href="complaints/complaints.html" target="mainContent" class="text-gray-400">Complaints</a></li>
+          <li><a href="stock/stock.html" target="mainContent" class="text-gray-400">Stock</a></li>
+          <li><a href="users/users.html" target="mainContent" class="text-gray-400">Users</a></li>
+          <li><a href="meals/meals.html" target="mainContent" class="text-gray-400">Meals</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <!-- Main Content -->
+     <main class="flex-1">
+        <iframe src="analytics/analysis.html" name="mainContent" class="w-full h-full border-0"></iframe>
+     </main>
+  </div>
+  <script src="dash.js"></script>
 </body>
 </html>

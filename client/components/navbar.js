@@ -1,89 +1,58 @@
-document.querySelectorAll('.nav-menu .nav-item').forEach(link => {
-    link.addEventListener('click', function(e) {
-        document.querySelectorAll('.nav-menu .nav-item').forEach(item => {
-            item.classList.remove('active');
-        });
-        this.classList.add('active');
-    });
-});
- 
-// calender style
 document.addEventListener('DOMContentLoaded', function() {
-    const calendarBtn = document.getElementById('calendarBtn');
-    const calendarContainer = document.getElementById('calendarContainer');
-    const monthDisplay = document.getElementById('monthDisplay');
-    const calendarDays = document.getElementById('calendarDays');
-    const prevMonth = document.getElementById('prevMonth');
-    const nextMonth = document.getElementById('nextMonth');
+    const navItems = document.querySelectorAll('.nav-menu .nav-item');
+    const contentFrame = window.parent.frames['content'];
 
-    let currentDate = new Date();
-    let selectedDate = new Date();
-
-    function generateCalendar(date) {
-        const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
-        const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
-        const startingDay = firstDay.getDay();
-        const monthLength = lastDay.getDate();
-
-        monthDisplay.textContent = date.toLocaleString('default', { month: 'long', year: 'numeric' });
-        calendarDays.innerHTML = '';
-
-        // Previous month days
-        const prevMonthLastDay = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
-        for (let i = startingDay - 1; i >= 0; i--) {
-            const dayElement = createDayElement(prevMonthLastDay - i, 'other-month');
-            calendarDays.appendChild(dayElement);
-        }
-
-        // Current month days
-        for (let i = 1; i <= monthLength; i++) {
-            const isCurrentDay = i === currentDate.getDate() && 
-                               date.getMonth() === currentDate.getMonth() && 
-                               date.getFullYear() === currentDate.getFullYear();
-            const dayElement = createDayElement(i, isCurrentDay ? 'current' : '');
-            calendarDays.appendChild(dayElement);
-        }
-
-        // Next month days
-        const remainingDays = 42 - (startingDay + monthLength);
-        for (let i = 1; i <= remainingDays; i++) {
-            const dayElement = createDayElement(i, 'other-month');
-            calendarDays.appendChild(dayElement);
+    function syncNavigation(pagePath, pushState = true) {
+        const cleanPath = pagePath.replace('../pages/', '');
+        const targetItem = Array.from(navItems).find(item => item.dataset.page === cleanPath);
+        
+        if (targetItem) {
+            // Update active state
+            navItems.forEach(item => item.classList.remove('active'));
+            targetItem.classList.add('active');
+            
+            // Update iframe content
+            const targetUrl = targetItem.querySelector('a').href;
+            if (contentFrame.location.href !== targetUrl) {
+                contentFrame.location.href = targetUrl;
+            }
+            
+            // Update session and history
+            sessionStorage.setItem('activePage', cleanPath);
+            if (pushState) {
+                history.pushState({ page: cleanPath }, '', window.location.href);
+            }
         }
     }
 
-    function createDayElement(day, className) {
-        const div = document.createElement('div');
-        div.textContent = day;
-        div.className = `calendar-day ${className}`;
-        div.addEventListener('click', () => selectDate(day));
-        return div;
-    }
+    // Initial state
+    const savedPage = sessionStorage.getItem('activePage') || 'dashboard/dash.html';
+    syncNavigation(savedPage, false);
 
-    function selectDate(day) {
-        selectedDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
-        generateCalendar(currentDate);
-    }
-
-    calendarBtn.addEventListener('click', () => {
-        calendarContainer.classList.toggle('active');
+    // Handle clicks
+    navItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            syncNavigation(this.dataset.page);
+        });
     });
 
-    document.addEventListener('click', (e) => {
-        if (!calendarContainer.contains(e.target) && e.target !== calendarBtn) {
-            calendarContainer.classList.remove('active');
+    // Handle iframe changes
+    contentFrame.addEventListener('load', function() {
+        try {
+            const currentPath = this.location.pathname;
+            const pagePath = currentPath.split('/pages/')[1];
+            if (pagePath && pagePath !== sessionStorage.getItem('activePage')) {
+                syncNavigation(pagePath, true);
+            }
+        } catch (e) {
+            console.warn('Could not access iframe location:', e);
         }
     });
 
-    prevMonth.addEventListener('click', () => {
-        currentDate.setMonth(currentDate.getMonth() - 1);
-        generateCalendar(currentDate);
+    // Handle browser navigation
+    window.addEventListener('popstate', function(event) {
+        const targetPage = event.state?.page || savedPage;
+        syncNavigation(targetPage, false);
     });
-
-    nextMonth.addEventListener('click', () => {
-        currentDate.setMonth(currentDate.getMonth() + 1);
-        generateCalendar(currentDate);
-    });
-
-    generateCalendar(currentDate);
 });

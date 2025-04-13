@@ -1,0 +1,67 @@
+main {
+    flex: 1;
+    background-color: black;
+    padding: .5rem;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.chart-box {
+    background-color: #1f2937;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.chart-box h2 {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.fees-chart {
+    grid-column: span 2;
+}
+
+.fees-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    margin-top: 1rem;
+    color: white;
+}
+
+.scrollable-list {
+    grid-column: span 2;
+}
+
+.scrollable-list ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: white;
+}
+
+.emergency {
+    background-color: #dc2626;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.emergency p {
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.emergency button {
+    background-color: black;
+    color: #ef4444;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: none;
+    cursor: pointer;
+}

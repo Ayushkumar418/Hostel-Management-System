@@ -8,5 +8,17 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ayushkumar418/Hostel-Management-System.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ayushkumar418/Hostel-Management-System/issues"
+  },
+  "homepage": "https://github.com/Ayushkumar418/Hostel-Management-System#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.3",
+    "tailwindcss": "^4.1.3"
+  }
 }
