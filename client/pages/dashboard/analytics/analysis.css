@@ -1,67 +1,79 @@
-main {
-    flex: 1;
-    background-color: black;
-    padding: .5rem;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.charts-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #121212;
+  color: white;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.chart-box {
-    background-color: #1f2937;
-    padding: 1rem;
-    border-radius: 0.5rem;
+.main {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
 }
 
-.chart-box h2 {
-    color: white;
-    margin-bottom: 0.5rem;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
 }
 
-.fees-chart {
-    grid-column: span 2;
+.card {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
 }
 
-.fees-info {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.875rem;
-    margin-top: 1rem;
-    color: white;
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 1rem;
 }
 
-.scrollable-list {
-    grid-column: span 2;
+canvas {
+  max-width: 80px;
+  margin: 0 auto;
 }
 
-.scrollable-list ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    color: white;
+.info {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.student {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.student img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
 }
 
 .emergency {
-    background-color: #dc2626;
-    text-align: center;
-    padding: 1.5rem;
-}
-
-.emergency p {
-    color: white;
-    margin-bottom: 1rem;
+  background-color: #a00;
+  text-align: center;
+  padding: 20px;
+  border-radius: 12px;
 }
 
 .emergency button {
-    background-color: black;
-    color: #ef4444;
-    font-weight: bold;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    border: none;
-    cursor: pointer;
+  background-color: red;
+  border: none;
+  padding: 8px 16px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 10px;
 }

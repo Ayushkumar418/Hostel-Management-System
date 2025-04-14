@@ -3,13 +3,18 @@ body {
   color: white;
 }
 
+.content {
+  gap: 1rem;
+}
+
 aside {
   background-color: #1e1e1e;
+  border-radius: .5rem;
 }
 
 aside ul {
   list-style: none;
-  margin-left: 1rem;
+  margin-left: .5rem;
 }
 
 aside ul li:hover {
@@ -37,4 +42,8 @@ aside ul li a {
 
 aside ul li a:hover {
     background-color: #2d2d2d;
+}
+
+iframe {
+  border-radius: .5rem;
 }
