@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #0e0e0e;
+    color: white;
+  }
+  
+  .container {
+    display: flex;
+  }
+  
+  .main {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: #1f1f1f;
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .hostel-card {
+    background: #1c1c1c;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .card-content {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  canvas {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  
+  .stats {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+    gap: 6px;
+  }
+  
+  .furniture {
+    flex: 1;
+  }
+  
+  .furniture ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .furniture li {
+    margin-bottom: 4px;
+  }
+  
