@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="24" height="24">
+  <!-- Plate -->
+  <circle cx="32" cy="32" r="24" fill="#E0E0E0" stroke="#B0B0B0" stroke-width="2"/>
+
+  <!-- Fork -->
+  <rect x="12" y="12" width="2" height="28" fill="#666"/>
+  <rect x="10.5" y="12" width="1.5" height="6" fill="#666"/>
+  <rect x="13.5" y="12" width="1.5" height="6" fill="#666"/>
+  <rect x="12" y="40" width="2" height="10" fill="#999"/>
+
+  <!-- Knife -->
+  <rect x="50" y="12" width="2" height="38" fill="#888"/>
+  <path d="M51 50 Q52 52, 51 54 Q50 52, 51 50" fill="#aaa"/>
+
+</svg>

@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HMS Dashboard</title>
+  <link rel="stylesheet" href="../../../src/output.css">
+  <link rel="stylesheet" href="maintenance.css">
 </head>
-<body>
-    <h1 style="color: wheat;">This is a maintenance section</h1>
+<body class="font-sans">
+  <div class="flex h-screen content">
+    <!-- Sidebar -->
+    <aside class="w-64 p-4">
+      <nav>
+        <ul class="space-y-4">
+          <li><a href="analytics/analysis.html" target="mainContent" class="text-white active"><img src="../../components/icon/Analytics.svg" alt=""> Dashboard</a></li>
+          <li><a href="students/students.html" target="mainContent" class="text-gray-400"><img src="../../components/icon/Student.svg" alt=""> Stock</a></li>
+          <li><a href="complains/complaint.html" target="mainContent" class="text-gray-400"><img src="../../components/icon/complaint.svg" alt=""> Complaints</a></li>
+        </ul>
+      </nav>
+    </aside>
+    <!-- Main Content -->
+     <main class="flex-1">
+        <iframe src="analytics/analysis.html" name="mainContent" class="w-full h-full border-0"></iframe>
+     </main>
+  </div>
+  <script src="maintenance.js"></script>
 </body>
 </html>
