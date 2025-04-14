@@ -1,69 +1,61 @@
-/* Reset & Base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    display: flex;
-    height: 100vh;
-    background-color: #f4f6f8;
-    color: #333;
-  }
-  
-  /* Main Content */
-  .main-content {
-    flex: 1;
-    padding: 30px;
-    overflow-y: auto;
-  }
-  
-  .main-content h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
-  
-  /* Hostel Info */
-  .hostel-info {
-    background-color: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    margin-bottom: 25px;
-  }
-  
-  .hostel-info p {
-    margin-bottom: 10px;
-    font-weight: 500;
-  }
-  
-  /* Hostel Cards */
-  .hostel-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-  }
-  
-  .hostel-card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    transition: transform 0.2s ease;
-  }
-  
-  .hostel-card:hover {
-    transform: scale(1.03);
-  }
-  
-  .hostel-card h3 {
-    margin-bottom: 10px;
-    color: #222;
-  }
-  
-  .hostel-card p {
-    margin: 5px 0;
-  }
-  
+.head-block {
+  flex-direction: column;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.search {
+  position: relative;
+  width: fit-content;
+  width: 30%;
+}
+
+.search input {
+  position: relative;
+  width: 100%;
+  padding: 0.5rem;
+  padding-right: 2.5rem;
+  border-radius: .5rem;
+  border: 1px solid #ccc;
+}
+
+.search img {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+.search img:hover {
+  background-color: gray;
+  border-radius: 50%;
+  padding: 0.2rem;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.search input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.total {
+  display: flex;
+  gap: 1rem;
+  width: 30%;
+}
+
+.total-hostel {
+  font-weight: bold;
+  text-align: center;
+}
+
+.add-hostel {
+  background-color: rgb(6 182 212);
+  font-weight: bold;
+  text-align: center;
+}
