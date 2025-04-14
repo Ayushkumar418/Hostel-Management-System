@@ -8,3 +8,16 @@
 *.js text eol=lf
 *.json text eol=lf
 *.md text eol=lf
+
+# Enforce LF for text files
+*.css text eol=lf
+*.html text eol=lf
+*.js text eol=lf
+
+# Binary files (no line-ending conversion)
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hostel Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="occupancy.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <div class="left">
+      <h2>Hostel 1</h2>
+      <div class="donut-chart">
+        <canvas id="donutChart"></canvas>
+        <div class="percentage">50%</div>
+      </div>
+    </div>
+
+    <div class="center">
+      <div class="info-boxes">
+        <div class="box highlight-pink">🛏️458</div>
+        <div class="box highlight-green">💧5</div>
+        <div class="box highlight-red">📺15</div>
+      </div>
+
+      <div class="info-boxes">
+        <div class="box">
+          <div>Total Rooms</div>
+          <div><b>458</b></div>
+        </div>
+        <div class="box">
+          <div>Occupied</div>
+          <div class="highlight-yellow"><b>58</b></div>
+        </div>
+        <div class="box">
+          <div>Floors</div>
+          <div><b>3</b></div>
+        </div>
+      </div>
+
+      <div class="info-boxes">
+        <div class="box">
+          <div>Students</div>
+          <div><b>6582</b></div>
+        </div>
+        <div class="box">
+          <div>In Hostel</div>
+          <div class="highlight-cyan"><b>1569</b></div>
+        </div>
+        <div class="box">
+          <div>Outside Hostel</div>
+          <div><b>2500</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="furniture">
+        <div class="furniture-header">
+          <h3>Furniture </h3><img src="../../../components/icon/link.svg" alt="">
+        </div>
+        <div class="furniture-item"><span>Ceiling Fan</span><span class="forward">50 <img src="../../../components/icon/forward.svg" alt=""></span></div>
+        <div class="furniture-item"><span>Center Table</span><span class="forward">50 <img src="../../../components/icon/forward.svg" alt=""></span></div>
+        <div class="furniture-item"><span>Chairs</span><span class="forward">50 <img src="../../../components/icon/forward.svg" alt=""></span></div>
+        <div class="furniture-item"><span>Refrigerator</span><span class="forward">50 <img src="../../../components/icon/forward.svg" alt=""></span></div>
+        <div class="furniture-item"><span>Kettle</span><span class="forward">50 <img src="../../../components/icon/forward.svg" alt=""></span></div>
+      </div>
+    </div>
+  </div>
+  <script src="occupancy.js"></script>
+</body>
+</html>

@@ -6,17 +6,32 @@ document.addEventListener('DOMContentLoaded', function() {
         sidebarLinks.forEach(link => {
             link.classList.remove('active', 'text-white');
             link.classList.add('text-gray-400');
-            if (link.getAttribute('href') === href) {
+            const linkHref = link.getAttribute('href');
+            if (linkHref === href || linkHref.endsWith(href)) {
                 link.classList.add('active', 'text-white');
                 link.classList.remove('text-gray-400');
-                sessionStorage.setItem('activeLink', href);
+                sessionStorage.setItem('activeLink', linkHref);
             }
         });
     }
 
-    // Set initial active state from sessionStorage or default
-    const savedLink = sessionStorage.getItem('activeLink') || 'analytics/analysis.html';
-    setActiveLink(savedLink);
+    function getInitialPath() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const pathFromUrl = urlParams.get('page');
+        const savedPath = sessionStorage.getItem('activeLink');
+        return pathFromUrl || savedPath || 'occupancy/occupancy.html';
+    }
+
+    function initializeActiveState() {
+        const initialPath = getInitialPath();
+        setActiveLink(initialPath);
+        if (!mainContent.src) {
+            mainContent.src = initialPath;
+        }
+    }
+
+    // Initialize active state
+    initializeActiveState();
 
     // Handle clicks on sidebar links
     sidebarLinks.forEach(link => {
@@ -28,7 +43,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Monitor iframe changes
     mainContent.addEventListener('load', function() {
         const currentPath = this.contentWindow.location.pathname;
-        const relativePath = currentPath.split('/').slice(-2).join('/');
-        setActiveLink(relativePath);
+        const pathParts = currentPath.split('/');
+        const relativePath = pathParts.slice(-2).join('/');
+        if (relativePath) {
+            setActiveLink(relativePath);
+        }
     });
 });
