@@ -1,62 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hostels</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hostel Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../../../src/output.css">
   <link rel="stylesheet" href="hostels.css">
 </head>
-<body>
-  <!-- Main Content -->
-  <div class="main-content">
-    <h1>Hostel Details</h1>
 
-    <!-- Hostel Overview -->
-    <div class="hostel-info">
-      <p>Total Hostels: 5</p>
-      <p>Available Rooms: 20</p>
-      <p>Occupied Rooms: 10</p>
+<body class="bg-[#111] text-white font-sans p-6">
+  <div class="head-block flex">
+    <div class="search relative">
+      <input type="text" placeholder="Search..." class="bg-[#1a1a1a] text-white rounded-xl px-4 py-2 pr-10" />
+      <img src="../../../components/icon/search.svg" alt="" class="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4">
     </div>
-
-    <!-- Hostel List -->
-    <div class="hostel-list">
-      <!-- Hostel 1 -->
-      <div class="hostel-card">
-        <h3>Hostel A</h3>
-        <p>Rooms: 15</p>
-        <p>Status: Available</p>
-      </div>
-
-      <!-- Hostel 2 -->
-      <div class="hostel-card">
-        <h3>Hostel B</h3>
-        <p>Rooms: 10</p>
-        <p>Status: Occupied</p>
-      </div>
-
-      <!-- Hostel 3 -->
-      <div class="hostel-card">
-        <h3>Hostel C</h3>
-        <p>Rooms: 12</p>
-        <p>Status: Available</p>
-      </div>
-
-      <!-- Hostel 4 -->
-      <div class="hostel-card">
-        <h3>Hostel D</h3>
-        <p>Rooms: 18</p>
-        <p>Status: Available</p>
-      </div>
-
-      <!-- Hostel 5 -->
-      <div class="hostel-card">
-        <h3>Hostel E</h3>
-        <p>Rooms: 22</p>
-        <p>Status: Occupied</p>
-      </div>
+    <div class="total">
+      <span class="bg-[#1a1a1a] total-hostel text-white rounded-xl py-2 w-full">Total Hostel: 3</span>
+      <span class="add-hostel text-white rounded-xl px-4 py-2 w-full">+Add Hostel</span>
     </div>
   </div>
+  <!-- Main Container -->
+  <div class="grid grid-cols-4 gap-4">
 
+    <!-- Left Panel -->
+    <div class="col-span-1 flex flex-col justify-between bg-[#1a1a1a] rounded-2xl p-4">
+      <div>
+        <h2 class="text-2xl font-semibold">Hostel 1 📝</h2>
+        <p class="text-gray-400 mt-2 text-sm">Plot number 206, Tihri Nagar,<br>Main Hawai Sadak<br>Jaipur - Rajasthan -
+          302021 India</p>
+        <div class="w-40 h-40 mt-6 mx-auto relative">
+          <canvas id="occupancyChart"></canvas>
+          <div class="absolute inset-0 flex items-center justify-center text-3xl font-bold">50%</div>
+        </div>
+      </div>
+      <button class="mt-6 bg-cyan-500 hover:bg-cyan-600 text-white py-3 rounded-xl font-semibold w-full">+Add
+        Room</button>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="col-span-2 grid grid-cols-3 gap-4">
+
+      <!-- Icons Row -->
+      <div class="col-span-3 flex gap-4">
+        <div class="bg-[#1a1a1a] flex items-center gap-2 px-4 py-3 rounded-xl w-full">
+          <span class="text-pink-500 text-xl">🛏️</span>
+          <span class="text-lg font-semibold">458</span>
+        </div>
+        <div class="bg-[#1a1a1a] flex items-center gap-2 px-4 py-3 rounded-xl w-full">
+          <span class="text-green-400 text-xl">🛗</span>
+          <span class="text-lg font-semibold">5</span>
+        </div>
+        <div class="bg-[#1a1a1a] flex items-center gap-2 px-4 py-3 rounded-xl w-full">
+          <span class="text-red-500 text-xl">🖼️</span>
+          <span class="text-lg font-semibold">15</span>
+        </div>
+      </div>
+
+      <!-- Room Stats -->
+      <div class="bg-[#1a1a1a] p-4 rounded-xl text-center">
+        <p class="text-gray-400">Total Rooms</p>
+        <p class="text-xl font-bold">458</p>
+      </div>
+      <div class="bg-[#1a1a1a] p-4 rounded-xl text-center">
+        <p class="text-gray-400">Occupied</p>
+        <p class="text-xl font-bold text-yellow-400">58</p>
+      </div>
+      <div class="bg-[#1a1a1a] p-4 rounded-xl text-center">
+        <p class="text-gray-400">Floors</p>
+        <p class="text-xl font-bold">3</p>
+      </div>
+
+      <!-- Students -->
+      <div class="col-span-3 flex justify-between bg-[#1a1a1a] p-4 rounded-xl">
+        <div>
+          <p class="text-gray-400">Students</p>
+          <p class="font-bold text-white text-lg">6582</p>
+        </div>
+        <div>
+          <p class="text-gray-400">In Hostel</p>
+          <p class="font-bold text-cyan-400 text-lg">1569</p>
+        </div>
+        <div>
+          <p class="text-gray-400">Outside Hostel</p>
+          <p class="font-bold text-white text-lg">2500</p>
+        </div>
+      </div>
+
+      <!-- Amount Stats -->
+      <div class="col-span-3 grid grid-cols-4 gap-4 mt-2">
+        <div class="col-span-1 bg-[#1a1a1a] p-4 rounded-xl">
+          <p class="text-gray-400">Expected</p>
+          <p class="text-xl font-bold">₹ 15,65,852</p>
+        </div>
+        <div class="col-span-1 bg-[#1a1a1a] p-4 rounded-xl">
+          <p class="text-gray-400">Collected</p>
+          <p class="text-xl font-bold text-cyan-400">₹ 3,91,463</p>
+        </div>
+        <div class="col-span-1 bg-[#1a1a1a] p-4 rounded-xl">
+          <p class="text-gray-400">Remaining</p>
+          <p class="text-xl font-bold text-yellow-400">₹ 7,51,608</p>
+        </div>
+        <div class="col-span-1 bg-[#1a1a1a] p-4 rounded-xl">
+          <p class="text-gray-400">Overdue</p>
+          <p class="text-xl font-bold text-pink-500">₹ 4,85,414.12</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Section -->
+    <div class="col-span-1 flex flex-col gap-4">
+
+      <!-- Collection Chart -->
+      <div class="bg-[#1a1a1a] rounded-2xl p-4">
+        <h3 class="text-lg font-semibold mb-2">Collection</h3>
+        <div class="relative w-44 h-44 mx-auto">
+          <canvas id="collectionChart"></canvas>
+          <div class="absolute inset-0 flex items-center justify-center text-2xl font-bold">25%</div>
+        </div>
+      </div>
+
+      <!-- Furniture -->
+      <div class="bg-[#1a1a1a] rounded-2xl p-4">
+        <h3 class="text-lg font-semibold mb-2">Furniture 📝</h3>
+        <ul class="space-y-2 text-sm">
+          <li class="flex justify-between bg-[#2a2a2a] px-4 py-2 rounded-xl">Ceiling Fan <span>50 ➤</span></li>
+          <li class="flex justify-between bg-[#2a2a2a] px-4 py-2 rounded-xl">Center Table <span>12 ➤</span></li>
+          <li class="flex justify-between bg-[#2a2a2a] px-4 py-2 rounded-xl">Chairs <span>123 ➤</span></li>
+          <li class="flex justify-between bg-[#2a2a2a] px-4 py-2 rounded-xl">Refrigerator <span>06 ➤</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
   <script src="hostels.js"></script>
 </body>
+
 </html>
