@@ -3,16 +3,42 @@ body {
     padding: 0;
     height: 100vh;
     background-color: black;
+    overflow-x: hidden;
 }
 
 iframe[name="navbar"] {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 5rem;
     border: none;
+    z-index: 9999;
 }
 
 iframe[name="content"] {
+    position: relative;
+    margin-top: 5rem;
     width: 100%;
     height: calc(100vh - 5rem);
     border: none;
+    z-index: 1;
 }
+
+@media screen and (max-width: 1250px) {
+  html {
+    font-size: 85%;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+    html {
+      font-size: 70%;
+    }
+  }
+
+@media screen and (max-width: 880px) {
+    html {
+      font-size: 60%;
+    }
+  }

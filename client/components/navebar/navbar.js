@@ -1,6 +1,43 @@
 document.addEventListener('DOMContentLoaded', function() {
     const navItems = document.querySelectorAll('.nav-menu .nav-item');
     const contentFrame = window.parent.frames['content'];
+    const hamburger = document.getElementById('hamburger');
+    const navContent = document.getElementById('navContent');
+
+    // Hamburger menu functionality
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navContent.classList.toggle('active');
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = navContent.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Close menu when clicking menu items
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navContent.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navContent.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navContent.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Close menu on window resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            hamburger.classList.remove('active');
+            navContent.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
 
     function syncNavigation(pagePath, pushState = true) {
         const cleanPath = pagePath.replace('../pages/', '');

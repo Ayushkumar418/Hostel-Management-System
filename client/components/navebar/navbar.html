@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>navbar</title>
     <link rel="stylesheet" href="nav.css">
 </head>
 <body>
     <nav class="main-nav">
         <div class="logo-container">
-          <div class="status-dot"></div>
-          <span class="brand-text">SU</span>
+            <div class="status-dot"></div>
+            <span class="brand-text">SU</span>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-        <div class="nav-content">
+        <div class="nav-content" id="navContent">
             <ul class="nav-menu">
                 <li class="nav-item active" data-page="dashboard/dash.html">
                     <a href="../../pages/dashboard/dash.html" target="content">
