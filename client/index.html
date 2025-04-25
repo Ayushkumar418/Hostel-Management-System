@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,6 +13,7 @@
       box-sizing: border-box;
       font-family: 'Inter', sans-serif;
     }
+
     body {
       background-color: #f9f9f9;
       color: #111827;
@@ -26,7 +28,7 @@
       position: fixed;
       width: 100%;
       border-bottom: 1px solid #8a9bbe;
-      box-shadow: 2px 2px 2px #cab6b6;    
+      box-shadow: 2px 2px 2px #cab6b6;
       z-index: 100;
     }
 
@@ -35,15 +37,18 @@
       font-weight: bold;
       color: #1d4ed8;
     }
+
     nav {
       display: flex;
     }
+
     nav a {
       margin-left: 30px;
       text-decoration: none;
       color: #111827;
       font-weight: 500;
     }
+
     .menu-toggle {
       display: none;
       font-size: 1.8rem;
@@ -59,7 +64,7 @@
         top: 70px;
         right: 10%;
         width: 50%;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
         padding: 10px;
       }
@@ -88,18 +93,21 @@
       opacity: .8;
       z-index: 0;
     }
+
     .hero h1 {
       font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 10px;
       color: #132726;
     }
+
     .hero p {
       font-size: 1rem;
       max-width: 500px;
       color: #030b19;
       font-weight: 800;
     }
+
     .hero button {
       margin-top: 20px;
       background-color: #10b981;
@@ -115,18 +123,21 @@
       padding: 60px 10%;
       background-color: white;
     }
+
     .features-section h2 {
       text-align: center;
       font-size: 2rem;
       font-weight: 700;
       margin-bottom: 40px;
     }
+
     .features {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       gap: 30px;
     }
+
     .feature-card {
       flex: 1 1 250px;
       background: #f3f4f6;
@@ -134,37 +145,135 @@
       border-radius: 12px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     }
+
     .feature-card h3 {
       font-size: 1.2rem;
       margin-bottom: 10px;
     }
+
     .feature-card p {
       font-size: 0.95rem;
       color: #4b5563;
+    }
+
+    .about-section {
+      padding: 60px 10%;
+      background: linear-gradient(to right, #dbeafe, #e0f2fe);
+      text-align: center;
+    }
+
+    .about-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .about-section p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #1f2937;
+      line-height: 1.6;
+    }
+
+    .student-section {
+      padding: 60px 10%;
+      background-color: #f0fdf4;
+      text-align: center;
+    }
+
+    .student-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: #065f46;
+    }
+
+    .student-feedback {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .feedback-card {
+      background-color: white;
+      border-left: 5px solid #10b981;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .feedback-card p {
+      font-size: 0.95rem;
+      color: #374151;
+    }
+
+    .feedback-card h4 {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #111827;
+    }
+
+    .testimonial-section {
+      padding: 60px 10%;
+      background-color: #fff7ed;
+      text-align: center;
+    }
+
+    .testimonial-section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    .testimonials {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .testimonial {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .testimonial h4 {
+      margin-top: 10px;
+      color: #1d4ed8;
     }
 
     .gallery-section {
       padding: 60px 10%;
       background-color: #f9fafb;
     }
+
     .gallery-section h2 {
       text-align: center;
       font-size: 2rem;
       font-weight: 700;
       margin-bottom: 40px;
     }
+
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
     }
+
     .gallery-item {
       background: white;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
       text-align: center;
     }
+
     .gallery-item img {
       width: 100%;
       height: 200px;
@@ -180,29 +289,30 @@
     }
 
     .get-started-btn {
-  display: inline-block;
-  background-color: #10b981;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  text-decoration: none;
-}
-.get-started-btn:hover {
-  background-color: #059669;
-}
+      display: inline-block;
+      background-color: #10b981;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+    }
 
+    .get-started-btn:hover {
+      background-color: #059669;
+    }
   </style>
 </head>
+
 <body>
   <header>
     <div class="logo">🏠 SmartHostel</div>
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <nav id="nav-menu">
-      <a href="index.html">Home</a>
-      <a href="#">About</a>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
       <a href="login/login.html">Login</a>
     </nav>
   </header>
@@ -210,45 +320,112 @@
   <section class="hero">
     <div class="content">
       <h1>Modern Hostel Management Made Easy</h1>
-      <p>Efficiently manage room bookings, fee payments, notices, and more with our comprehensive hostel management system.</p>
+      <p>Efficiently manage room bookings, fee payments, notices, and more with our comprehensive hostel management
+        system.</p>
       <a href="login/login.html" class="get-started-btn">Get Started</a>
-
     </div>
+  </section>
+
+  <section class="about-section" id="about">
+    <h2>Why SmartHostel Feels Like Home 💙</h2>
+    <p>SmartHostel isn’t just a place to stay, it's where comfort meets community. Whether you're grinding assignments
+      in our high-speed computer lab, chilling in the library, or sweating it out in the gym — we’ve got your vibe
+      covered. With yoga sessions to relax your soul and a spacious playground to kick it with friends, you’ll never
+      want to leave. Join a place where growth, friendships, and great food come together. It’s not just smart. It’s
+      *home* 🏠✨</p>
   </section>
 
   <section class="features-section">
-    <h2>Features</h2>
+    <h2>Our Hostel Features</h2>
     <div class="features">
       <div class="feature-card">
-        <h3>📅 Room Booking</h3>
-        <p>Easily manage room allocations and track availability with our intuitive booking system.</p>
+        <h3>🛏️ Comfortable Rooms</h3>
+        <p>Spacious rooms with cozy beds and daily maintenance – live like a champ.</p>
       </div>
       <div class="feature-card">
-        <h3>💳 Fee Payment</h3>
-        <p>Streamline fee collection and payment processing for students and administrators.</p>
+        <h3>🍲 Fresh & Healthy Meals</h3>
+        <p>Tasty, healthy food made with love to keep you powered up all day.</p>
       </div>
       <div class="feature-card">
-        <h3>📢 Notices</h3>
-        <p>Post important announcements and updates to keep students informed.</p>
+        <h3>🧹 Hygienic Environment</h3>
+        <p>Clean vibes only! We make sure every corner is sparkling and safe.</p>
+      </div>
+      <div class="feature-card">
+        <h3>💪 Gym</h3>
+        <p>Workout time? Our gym’s always ready for your fitness flex.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🏃 Playground</h3>
+        <p>From football to frisbee – unwind, play, repeat!</p>
+      </div>
+      <div class="feature-card">
+        <h3>🧘 Yoga</h3>
+        <p>Stretch, breathe, vibe. Our yoga space is your peace zone.</p>
+      </div>
+      <div class="feature-card">
+        <h3>💻 Computer Lab</h3>
+        <p>Speedy internet, powerful PCs – everything a student geek dreams of.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📚 Library</h3>
+        <p>Books + Beanbags = Perfect study corner. Go explore!</p>
       </div>
     </div>
   </section>
+
+
 
   <section class="gallery-section">
     <h2>Gallery</h2>
     <div class="gallery-grid">
-      <div class="gallery-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyN1jHELC7Si5ZOdDXwPbkIWmkhJLG5-VdIQ&s" alt="Common Area"></div>
-      <div class="gallery-item"><img src="https://cdn.npfs.co/uploads/template/47/5010/publish/images/university1.webp?1734765909" alt="Study Room"></div>
-      <div class="gallery-item"><img src="https://image-static.collegedunia.com/public/college_data/images/appImage/1595851116Cover.jpg?h=260&w=360&mode=crop" alt="Hostel"></div>
-      <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Shobhit-University.jpg" alt="Laundry"></div>
-      <div class="gallery-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmw01R6wSl1NCM_CiyRJqYlS4q6tQEXgeL6K3DVC96WYQRsTE_5si67Kw72nVPjoOfxgY&usqp=CAU" alt="Reception"></div>
-      <div class="gallery-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI0OR3EuhOy7RaQJU1VCQYQ8VZmVG-EinqTw&s" alt="Security"></div>
-      <div class="gallery-item"><img src="https://media.collegedekho.com/media/img/institute/crawled_images/None/sangeetam-1a.jpg" alt="Gym"></div>
-      <div class="gallery-item"><img src="https://media.collegedekho.com/media/img/institute/crawled_images/None/1H4A5770a.jpg" alt="Dining Hall"></div>
-      <div class="gallery-item"><img src="https://institute.careerguide.com/wp-content/uploads/2022/07/Gym-of-Shobhit-University-Gangoh_Gymnasium.png" alt="Gym"></div>
-      <div class="gallery-item"><img src="https://asundi-enterprises.allegiance-educare.in/storage/uploads/colleges/1438935835girls%20hostel.jpg" alt="Gym"></div>
+      <div class="gallery-item"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyN1jHELC7Si5ZOdDXwPbkIWmkhJLG5-VdIQ&s"
+          alt="Common Area"></div>
+      <div class="gallery-item"><img
+          src="https://cdn.npfs.co/uploads/template/47/5010/publish/images/university1.webp?1734765909"
+          alt="Study Room"></div>
+      <div class="gallery-item"><img
+          src="https://image-static.collegedunia.com/public/college_data/images/appImage/1595851116Cover.jpg?h=260&w=360&mode=crop"
+          alt="Hostel"></div>
+      <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Shobhit-University.jpg"
+          alt="Laundry"></div>
+      <div class="gallery-item"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmw01R6wSl1NCM_CiyRJqYlS4q6tQEXgeL6K3DVC96WYQRsTE_5si67Kw72nVPjoOfxgY&usqp=CAU"
+          alt="Reception"></div>
+      <div class="gallery-item"><img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI0OR3EuhOy7RaQJU1VCQYQ8VZmVG-EinqTw&s"
+          alt="Security"></div>
+      <div class="gallery-item"><img
+          src="https://media.collegedekho.com/media/img/institute/crawled_images/None/sangeetam-1a.jpg" alt="Gym"></div>
+      <div class="gallery-item"><img
+          src="https://media.collegedekho.com/media/img/institute/crawled_images/None/1H4A5770a.jpg" alt="Dining Hall">
+      </div>
+      <div class="gallery-item"><img
+          src="https://institute.careerguide.com/wp-content/uploads/2022/07/Gym-of-Shobhit-University-Gangoh_Gymnasium.png"
+          alt="Gym"></div>
+      <div class="gallery-item"><img
+          src="https://asundi-enterprises.allegiance-educare.in/storage/uploads/colleges/1438935835girls%20hostel.jpg"
+          alt="Gym"></div>
       <div class="gallery-item"><img src="https://sug.ac.in/images/slider-image3.jpg" alt="Playground"></div>
       <div class="gallery-item"><img src="https://i.ytimg.com/vi/tGoYFOtnJic/maxresdefault.jpg" alt="Gym"></div>
+    </div>
+  </section>
+
+  <section class="student-section">
+    <h2>Our Students Speak 🗣️</h2>
+    <div class="student-feedback">
+      <div class="feedback-card">
+        <p>“Facilities are top-notch! It really feels like a second home. Super chill vibes!”</p>
+        <h4>– Arjun Verma, MCA</h4>
+      </div>
+      <div class="feedback-card">
+        <p>“From tasty food to fast Wi-Fi, everything’s on point! Hostel life = upgraded.”</p>
+        <h4>– Meenal Kapoor, B.Sc</h4>
+      </div>
+      <div class="feedback-card">
+        <p>“I made so many friends and memories here. Would 100% recommend.”</p>
+        <h4>– Yash Mehra, BBA</h4>
+      </div>
     </div>
   </section>
 
@@ -263,4 +440,5 @@
     }
   </script>
 </body>
+
 </html>
