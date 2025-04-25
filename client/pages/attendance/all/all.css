@@ -1,0 +1,91 @@
+body {
+    background-color: #111;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 2rem;
+  }
+  
+  .container {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .live-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: limegreen;
+    border-radius: 50%;
+    margin-left: 0.5rem;
+  }
+  
+  .export-btn {
+    background-color: #28a745;
+    color: white;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+  }
+  
+  .student-card {
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.student-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.student-name {
+  color: white;
+  font-size: 16px;
+}
+
+.student-time {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.student-time.in-status {
+  color: #00FFFF;
+}
+
+.student-time.out-status {
+  color: #FFD700;
+}
+
+.student-time svg {
+  vertical-align: middle;
+}
