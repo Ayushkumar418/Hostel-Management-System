@@ -1,13 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hostel PG Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartHostel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background-color: #f9f9f9;
+      color: #111827;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background-color: #ffffff;
+      position: fixed;
+      width: 100%;
+      border-bottom: 1px solid #8a9bbe;
+      box-shadow: 2px 2px 2px #cab6b6;    
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #1d4ed8;
+    }
+    nav {
+      display: flex;
+    }
+    nav a {
+      margin-left: 30px;
+      text-decoration: none;
+      color: #111827;
+      font-weight: 500;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #fff;
+        position: absolute;
+        top: 70px;
+        right: 10%;
+        width: 50%;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        padding: 10px;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav a {
+        margin: 10px 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px 10%;
+      background: url('https://assets.collegedunia.com/public/college_data/images/appImage/1596022891Cover.jpg') center/cover;
+      height: 50rem;
+      color: #1e3a8a;
+      opacity: .8;
+      z-index: 0;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #132726;
+    }
+    .hero p {
+      font-size: 1rem;
+      max-width: 500px;
+      color: #030b19;
+      font-weight: 800;
+    }
+    .hero button {
+      margin-top: 20px;
+      background-color: #10b981;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .features-section {
+      padding: 60px 10%;
+      background-color: white;
+    }
+    .features-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .feature-card {
+      flex: 1 1 250px;
+      background: #f3f4f6;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+    .feature-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+
+    .gallery-section {
+      padding: 60px 10%;
+      background-color: #f9fafb;
+    }
+    .gallery-section h2 {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .gallery-item {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    footer {
+      background-color: #1e3a8a;
+      color: white;
+      text-align: center;
+      padding: 20px 10%;
+      font-size: 0.9rem;
+    }
+
+    .get-started-btn {
+  display: inline-block;
+  background-color: #10b981;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+}
+.get-started-btn:hover {
+  background-color: #059669;
+}
+
+  </style>
 </head>
 <body>
-    <iframe src="components/navebar/navbar.html" name="navbar"></iframe>
-    <iframe src="pages/dashboard/dash.html" name="content"></iframe>
+  <header>
+    <div class="logo">🏠 SmartHostel</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <nav id="nav-menu">
+      <a href="index.html">Home</a>
+      <a href="#">About</a>
+      <a href="login/login.html">Login</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="content">
+      <h1>Modern Hostel Management Made Easy</h1>
+      <p>Efficiently manage room bookings, fee payments, notices, and more with our comprehensive hostel management system.</p>
+      <a href="login/login.html" class="get-started-btn">Get Started</a>
+
+    </div>
+  </section>
+
+  <section class="features-section">
+    <h2>Features</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>📅 Room Booking</h3>
+        <p>Easily manage room allocations and track availability with our intuitive booking system.</p>
+      </div>
+      <div class="feature-card">
+        <h3>💳 Fee Payment</h3>
+        <p>Streamline fee collection and payment processing for students and administrators.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📢 Notices</h3>
+        <p>Post important announcements and updates to keep students informed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-section">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyN1jHELC7Si5ZOdDXwPbkIWmkhJLG5-VdIQ&s" alt="Common Area"></div>
+      <div class="gallery-item"><img src="https://cdn.npfs.co/uploads/template/47/5010/publish/images/university1.webp?1734765909" alt="Study Room"></div>
+      <div class="gallery-item"><img src="https://image-static.collegedunia.com/public/college_data/images/appImage/1595851116Cover.jpg?h=260&w=360&mode=crop" alt="Hostel"></div>
+      <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Shobhit-University.jpg" alt="Laundry"></div>
+      <div class="gallery-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmw01R6wSl1NCM_CiyRJqYlS4q6tQEXgeL6K3DVC96WYQRsTE_5si67Kw72nVPjoOfxgY&usqp=CAU" alt="Reception"></div>
+      <div class="gallery-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI0OR3EuhOy7RaQJU1VCQYQ8VZmVG-EinqTw&s" alt="Security"></div>
+      <div class="gallery-item"><img src="https://media.collegedekho.com/media/img/institute/crawled_images/None/sangeetam-1a.jpg" alt="Gym"></div>
+      <div class="gallery-item"><img src="https://media.collegedekho.com/media/img/institute/crawled_images/None/1H4A5770a.jpg" alt="Dining Hall"></div>
+      <div class="gallery-item"><img src="https://institute.careerguide.com/wp-content/uploads/2022/07/Gym-of-Shobhit-University-Gangoh_Gymnasium.png" alt="Gym"></div>
+      <div class="gallery-item"><img src="https://asundi-enterprises.allegiance-educare.in/storage/uploads/colleges/1438935835girls%20hostel.jpg" alt="Gym"></div>
+      <div class="gallery-item"><img src="https://sug.ac.in/images/slider-image3.jpg" alt="Playground"></div>
+      <div class="gallery-item"><img src="https://i.ytimg.com/vi/tGoYFOtnJic/maxresdefault.jpg" alt="Gym"></div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 SmartHostel &nbsp; | &nbsp; Contact &nbsp; | &nbsp; Policy
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('nav-menu');
+      nav.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
