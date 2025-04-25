@@ -1,0 +1,375 @@
+:root {
+  /* --background: linear-gradient(to right, #dbeafe, #e0f2fe); */
+  --background: #f0fdf4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: var(--background);
+  color: #111827;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10%;
+  position: fixed;
+  width: 100%;
+  border-bottom: 1px solid #8a9bbe;
+  box-shadow: 2px 2px 2px #cab6b6;
+  z-index: 100;
+  background: var(--background);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.81);
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  color: black;
+
+}
+
+nav {
+  display: flex;
+}
+
+nav a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #111827;
+  font-weight: 700;
+}
+
+nav a:hover {
+  font-weight: 900;
+  color: #1d4ed8;
+  transition: all 0.3s ease;
+}
+
+nav .nav-link {
+  color: #333;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+nav .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #1d4ed8;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+nav .nav-link:hover::after,
+nav .nav-link.active::after {
+  width: 100%;
+}
+
+nav .nav-link:hover,
+nav .nav-link.active {
+  color: #1d4ed8;
+  font-weight: 700;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle.active {
+  transform: rotate(45deg);
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 70px;
+    right: 10%;
+    width: 40%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  nav.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;}
+
+  nav a {
+    margin: 10px 0;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 10%;
+  background: url("https://assets.collegedunia.com/public/college_data/images/appImage/1596022891Cover.jpg")
+    center/cover;
+  height: 50rem;
+  color: #1e3a8a;
+  z-index: 0;
+  position: relative;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.content p {
+  font-size: 1rem;
+  max-width: 500px;
+  color: white;
+  font-weight: 800;
+}
+
+.hero-bg {
+  background-color: black;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+}
+
+.features-section {
+  padding: 60px 10% 60px 10%;  /* Increased top padding to account for fixed header */
+  background: var(--background);
+  scroll-margin-top: 80px;  /* Add scroll margin to offset fixed header */
+}
+
+.features-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.feature-card {
+  flex: 1 1 250px;
+  background: white;
+  padding: 20px;
+  border: 1px solid #b0b5c034;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  transition: all 0.3s ease;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+.about-section {
+  padding: 1rem 10%;
+  background: var(--background);
+  text-align: center;
+  margin: 0;
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+.student-section {
+  padding: 60px 10%;
+  background-color: #f0fdf4;
+  text-align: center;
+}
+
+.student-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #065f46;
+}
+
+.student-feedback {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.feedback-card {
+  background-color: white;
+  border-left: 5px solid #10b981;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.feedback-card:hover {
+  transform: translateY(-4px);
+  transition: all 0.3s ease;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-card p {
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+.feedback-card h4 {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.testimonial-section {
+  padding: 60px 10%;
+  background-color: #fff7ed;
+  text-align: center;
+}
+
+.testimonial-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.testimonial {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.testimonial h4 {
+  margin-top: 10px;
+  color: #1d4ed8;
+}
+
+.gallery-title {
+    margin-top: 4rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.gallery-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 2px 4px 8px rgb(215, 197, 197);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+  transition: all 0.3s ease;
+  transform: scale(1.05);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+footer {
+  background-color: #1e3a8a;
+  color: white;
+  text-align: center;
+  padding: 20px 10%;
+  font-size: 0.9rem;
+}
+
+.get-started-btn {
+  display: inline-block;
+  background-color: #10b981;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 1rem;
+}
+
+.get-started-btn:hover {
+  background-color: #059669;
+}

@@ -1,260 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SmartHostel</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-    body {
-      background-color: #f9f9f9;
-      color: #111827;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 10%;
-      background-color: #ffffff;
-      position: fixed;
-      width: 100%;
-      border-bottom: 1px solid #8a9bbe;
-      box-shadow: 2px 2px 2px #cab6b6;    
-      z-index: 100;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #1d4ed8;
-    }
-    nav {
-      display: flex;
-    }
-    nav a {
-      margin-left: 30px;
-      text-decoration: none;
-      color: #111827;
-      font-weight: 500;
-    }
-    .menu-toggle {
-      display: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        background-color: #fff;
-        position: absolute;
-        top: 70px;
-        right: 10%;
-        width: 50%;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        border-radius: 10px;
-        padding: 10px;
-      }
-
-      nav.show {
-        display: flex;
-      }
-
-      nav a {
-        margin: 10px 0;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-    }
-
-    .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 40px 10%;
-      background: url('https://assets.collegedunia.com/public/college_data/images/appImage/1596022891Cover.jpg') center/cover;
-      height: 50rem;
-      color: #1e3a8a;
-      opacity: .8;
-      z-index: 0;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: #132726;
-    }
-    .hero p {
-      font-size: 1rem;
-      max-width: 500px;
-      color: #030b19;
-      font-weight: 800;
-    }
-    .hero button {
-      margin-top: 20px;
-      background-color: #10b981;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    .features-section {
-      padding: 60px 10%;
-      background-color: white;
-    }
-    .features-section h2 {
-      text-align: center;
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 40px;
-    }
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 30px;
-    }
-    .feature-card {
-      flex: 1 1 250px;
-      background: #f3f4f6;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    }
-    .feature-card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-    .feature-card p {
-      font-size: 0.95rem;
-      color: #4b5563;
-    }
-
-    .gallery-section {
-      padding: 60px 10%;
-      background-color: #f9fafb;
-    }
-    .gallery-section h2 {
-      text-align: center;
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 40px;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .gallery-item {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      text-align: center;
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    footer {
-      background-color: #1e3a8a;
-      color: white;
-      text-align: center;
-      padding: 20px 10%;
-      font-size: 0.9rem;
-    }
-
-    .get-started-btn {
-  display: inline-block;
-  background-color: #10b981;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  text-decoration: none;
-}
-.get-started-btn:hover {
-  background-color: #059669;
-}
-
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartHostel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-  <header>
-    <div class="logo">🏠 SmartHostel</div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <nav id="nav-menu">
-      <a href="index.html">Home</a>
-      <a href="#">About</a>
-      <a href="login/login.html">Login</a>
-    </nav>
-  </header>
+    <header>
+        <div class="logo"><img src="components/icon/hostel2.svg" alt=""> SU SmartHostel</div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav id="nav-menu">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#feature" class="nav-link">Features</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="login/login.html" class="nav-link">Login</a>
+        </nav>
+    </header>
 
-  <section class="hero">
-    <div class="content">
-      <h1>Modern Hostel Management Made Easy</h1>
-      <p>Efficiently manage room bookings, fee payments, notices, and more with our comprehensive hostel management system.</p>
-      <a href="login/login.html" class="get-started-btn">Get Started</a>
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="content">
+            <h1>Modern Hostel Management Made Easy</h1>
+            <p>Efficiently manage room bookings, fee payments, notices, and more with our comprehensive hostel
+                management
+                system.</p>
+            <a href="login/login.html" class="get-started-btn">Get Started</a>
+        </div>
+    </section>
 
-    </div>
-  </section>
+    <section class="features-section" id="feature">
+        <h2>Our Hostel Features</h2>
+        <div class="features">
+            <div class="feature-card">
+                <h3>🛏️ Comfortable Rooms</h3>
+                <p>Spacious rooms with cozy beds and daily maintenance – live like a champ.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🍲 Fresh & Healthy Meals</h3>
+                <p>Tasty, healthy food made with love to keep you powered up all day.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🧹 Hygienic Environment</h3>
+                <p>Clean vibes only! We make sure every corner is sparkling and safe.</p>
+            </div>
+            <div class="feature-card">
+                <h3>💪 Gym</h3>
+                <p>Workout time? Our gym’s always ready for your fitness flex.</p>
+            </div>
+            <div class="feature-card">
+                <h3>🏃 Playground</h3>
+                <p>From football to frisbee – unwind, play, repeat!</p>
+            </div>
+            <div class="feature-card">
+                <h3>🧘 Yoga</h3>
+                <p>Stretch, breathe, vibe. Our yoga space is your peace zone.</p>
+            </div>
+            <div class="feature-card">
+                <h3>💻 Computer Lab</h3>
+                <p>Speedy internet, powerful PCs – everything a student geek dreams of.</p>
+            </div>
+            <div class="feature-card">
+                <h3>📚 Library</h3>
+                <p>Books + Beanbags = Perfect study corner. Go explore!</p>
+            </div>
+        </div>
+        
+        <h2 class="gallery-title">Gallery</h2>>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyN1jHELC7Si5ZOdDXwPbkIWmkhJLG5-VdIQ&s"
+                    alt="Common Area"></div>
+            <div class="gallery-item"><img
+                    src="https://cdn.npfs.co/uploads/template/47/5010/publish/images/university1.webp?1734765909"
+                    alt="Study Room"></div>
+            <div class="gallery-item"><img
+                    src="https://image-static.collegedunia.com/public/college_data/images/appImage/1595851116Cover.jpg?h=260&w=360&mode=crop"
+                    alt="Hostel"></div>
+            <div class="gallery-item"><img
+                    src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Shobhit-University.jpg" alt="Laundry">
+            </div>
+            <div class="gallery-item"><img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmw01R6wSl1NCM_CiyRJqYlS4q6tQEXgeL6K3DVC96WYQRsTE_5si67Kw72nVPjoOfxgY&usqp=CAU"
+                    alt="Reception"></div>
+            <div class="gallery-item"><img
+                    src="data:image/jpeg;base64,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"
+                    alt="Security"></div>
+            <div class="gallery-item"><img
+                    src="https://media.collegedekho.com/media/img/institute/crawled_images/None/sangeetam-1a.jpg"
+                    alt="Gym"></div>
+            <div class="gallery-item"><img
+                    src="https://media.collegedekho.com/media/img/institute/crawled_images/None/1H4A5770a.jpg"
+                    alt="Dining Hall">
+            </div>
+            <div class="gallery-item"><img
+                    src="https://institute.careerguide.com/wp-content/uploads/2022/07/Gym-of-Shobhit-University-Gangoh_Gymnasium.png"
+                    alt="Gym"></div>
+            <div class="gallery-item"><img
+                    src="https://asundi-enterprises.allegiance-educare.in/storage/uploads/colleges/1438935835girls%20hostel.jpg"
+                    alt="Gym"></div>
+            <div class="gallery-item"><img src="https://sug.ac.in/images/slider-image3.jpg" alt="Playground"></div>
+            <div class="gallery-item"><img src="https://i.ytimg.com/vi/tGoYFOtnJic/maxresdefault.jpg" alt="Gym"></div>
+        </div>
+    </section>
 
-  <section class="features-section">
-    <h2>Features</h2>
-    <div class="features">
-      <div class="feature-card">
-        <h3>📅 Room Booking</h3>
-        <p>Easily manage room allocations and track availability with our intuitive booking system.</p>
-      </div>
-      <div class="feature-card">
-        <h3>💳 Fee Payment</h3>
-        <p>Streamline fee collection and payment processing for students and administrators.</p>
-      </div>
-      <div class="feature-card">
-        <h3>📢 Notices</h3>
-        <p>Post important announcements and updates to keep students informed.</p>
-      </div>
-    </div>
-  </section>
+    <section class="about-section" id="about">
+        <h2>About Our Hostel</h2>
+        <p>SmartHostel isn’t just a place to stay, it's where comfort meets community. Whether you're grinding
+            assignments
+            in our high-speed computer lab, chilling in the library, or sweating it out in the gym — we’ve got your vibe
+            covered. With yoga sessions to relax your soul and a spacious playground to kick it with friends, you’ll
+            never
+            want to leave. Join a place where growth, friendships, and great food come together. It’s not just smart.
+            It’s
+            <strong>home</strong> 🏠✨</p>
+    </section>
 
-  <section class="gallery-section">
-    <h2>Gallery</h2>
-    <div class="gallery-grid">
-      <div class="gallery-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyN1jHELC7Si5ZOdDXwPbkIWmkhJLG5-VdIQ&s" alt="Common Area"></div>
-      <div class="gallery-item"><img src="https://cdn.npfs.co/uploads/template/47/5010/publish/images/university1.webp?1734765909" alt="Study Room"></div>
-      <div class="gallery-item"><img src="https://image-static.collegedunia.com/public/college_data/images/appImage/1595851116Cover.jpg?h=260&w=360&mode=crop" alt="Hostel"></div>
-      <div class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Shobhit-University.jpg" alt="Laundry"></div>
-      <div class="gallery-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmw01R6wSl1NCM_CiyRJqYlS4q6tQEXgeL6K3DVC96WYQRsTE_5si67Kw72nVPjoOfxgY&usqp=CAU" alt="Reception"></div>
-      <div class="gallery-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI0OR3EuhOy7RaQJU1VCQYQ8VZmVG-EinqTw&s" alt="Security"></div>
-      <div class="gallery-item"><img src="https://media.collegedekho.com/media/img/institute/crawled_images/None/sangeetam-1a.jpg" alt="Gym"></div>
-      <div class="gallery-item"><img src="https://media.collegedekho.com/media/img/institute/crawled_images/None/1H4A5770a.jpg" alt="Dining Hall"></div>
-      <div class="gallery-item"><img src="https://institute.careerguide.com/wp-content/uploads/2022/07/Gym-of-Shobhit-University-Gangoh_Gymnasium.png" alt="Gym"></div>
-      <div class="gallery-item"><img src="https://asundi-enterprises.allegiance-educare.in/storage/uploads/colleges/1438935835girls%20hostel.jpg" alt="Gym"></div>
-      <div class="gallery-item"><img src="https://sug.ac.in/images/slider-image3.jpg" alt="Playground"></div>
-      <div class="gallery-item"><img src="https://i.ytimg.com/vi/tGoYFOtnJic/maxresdefault.jpg" alt="Gym"></div>
-    </div>
-  </section>
+    <section class="student-section">
+        <h2>Our Students Speak 🗣️</h2>
+        <div class="student-feedback">
+            <div class="feedback-card">
+                <p>“Facilities are top-notch! It really feels like a second home. Super chill vibes!”</p>
+                <h4>– Arjun Verma, MCA</h4>
+            </div>
+            <div class="feedback-card">
+                <p>“From tasty food to fast Wi-Fi, everything’s on point! Hostel life = upgraded.”</p>
+                <h4>– Meenal Kapoor, B.Sc</h4>
+            </div>
+            <div class="feedback-card">
+                <p>“I made so many friends and memories here. Would 100% recommend.”</p>
+                <h4>– Yash Mehra, BBA</h4>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    © 2025 SmartHostel &nbsp; | &nbsp; Contact &nbsp; | &nbsp; Policy
-  </footer>
-  <script src="router.js"></script>
+    <footer>
+        © 2025 SmartHostel &nbsp; | &nbsp; Contact &nbsp; | &nbsp; Policy
+    </footer>
+    <script src="router.js"></script>
 </body>
+
 </html>
