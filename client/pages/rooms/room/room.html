@@ -1,13 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../src/output.css">
-    <link rel="stylesheet" href="room.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Hostel Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="room.css">
 </head>
 <body>
-    <h1>This is room page</h1>
+
+  <div class="search-bar">
+    🔍
+    <input type="text" placeholder="Search...">
+  </div>
+
+  <div class="top-section">
+    <div class="card">
+      <div>Total Rooms</div>
+      <h2>456</h2>
+    </div>
+    <button class="add-btn">+Add Rooms</button>
+    <div class="card">
+      <div>Occupied</div>
+      <h2 class="blue">358</h2>
+    </div>
+    <div class="card">
+      <div>Vacant</div>
+      <h2 class="yellow">98</h2>
+    </div>
+    <div class="card">
+      <div>Types</div>
+      <h2>14</h2>
+    </div>
+    <div class="card">
+      <div>Tenants</div>
+      <h2>750</h2>
+    </div>
+  </div>
+
+  <div class="bunker">
+    <div class="bunker-header">
+      <div class="bunker-info">🛏️ 6 Bedded Bunker</div>
+      <button>Edit</button>
+    </div>
+    <div class="bunker-details">
+      <div class="card">
+        <div>Total Rooms</div>
+        <h2>125</h2>
+      </div>
+      <div class="card">
+        <div>Rent Per Tenant</div>
+        <h2>₹50,000</h2>
+      </div>
+      <div class="card">
+        <div>Tenants</div>
+        <h2>658</h2>
+      </div>
+      <div class="card">
+        <div>Furniture</div>
+        <h2>125</h2>
+      </div>
+    </div>
+    <div class="distribution-bar">
+      <div class="distribution-fill"></div>
+    </div>
+  </div>
+
+  <div class="bottom-section">
+    <div class="collection">
+      <canvas id="collectionChart" width="300" height="300"></canvas>
+    </div>
+    <div class="furniture">
+      <h3>Furniture 🔗</h3>
+      <div class="furniture-list">
+        <div class="furniture-item"><span>Ceiling Fan</span><span>50</span></div>
+        <div class="furniture-item"><span>Center Table</span><span>12</span></div>
+        <div class="furniture-item"><span>Chairs</span><span>123</span></div>
+        <div class="furniture-item"><span>Refrigerator</span><span>06</span></div>
+        <div class="furniture-item"><span>Kettle</span><span>12</span></div>
+      </div>
+    </div>
+  </div>
+
+<script src="room.js"></script>
 </body>
 </html>

@@ -8,6 +8,28 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>This is Furniture page</h1>
+    <div class="dashboard">
+        <div class="top-bar">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search ...">
+          </div>
+          <div class="buttons">
+            <button class="add-btn">+Add Furniture</button>
+            <button class="report-btn">Report Damage</button>
+          </div>
+        </div>
+    
+        <div id="cards-container" class="main-cards">
+          <!-- JS will inject cards here -->
+        </div>
+    
+        <div id="expense-monitor" class="expense-monitor">
+          <!-- JS will inject expense monitor here -->
+        </div>
+      </div>
+    
+      <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+      <script src="furniture.js"></script>
 </body>
 </html>
