@@ -145,6 +145,37 @@
         </div>
     </div>
 
+    <!-- Filter Students Modal -->
+    <div id="student-filter-modal" class="modal">
+        <div class="modal-content">
+            <h2>Filter Students</h2>
+            <form id="student-filter-form">
+                <div class="form-group">
+                    <label>Status</label>
+                    <select name="filterStatus" class="filter-select">
+                        <option value="">All Students</option>
+                        <option value="in">In Hostel</option>
+                        <option value="out">Out of Hostel</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Course</label>
+                    <select name="filterCourse" class="filter-select">
+                        <option value="">All Courses</option>
+                        <option value="btech">B.Tech</option>
+                        <option value="mtech">M.Tech</option>
+                        <option value="phd">PhD</option>
+                    </select>
+                </div>
+                <div class="filter-tags"></div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" onclick="closeFilterModal()">Cancel</button>
+                    <button type="submit" class="submit-btn">Apply Filters</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="students.js"></script>
 </body>
 

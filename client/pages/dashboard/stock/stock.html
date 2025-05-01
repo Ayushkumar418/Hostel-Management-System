@@ -3,11 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Stock Management</title>
     <link rel="stylesheet" href="../../../src/output.css">
     <link rel="stylesheet" href="stock.css">
 </head>
 <body>
-    <h1>This is stock page </h1>
+    <div class="first">
+        <div class="dashboard">
+            <div class="card">
+                <h3>Total Items<svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/></svg></h3>
+                <h2>156</h2>
+            </div>
+            <div class="card">
+                <h3>Low Stock<svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/></svg></h3>
+                <h2 class="yellow">23</h2>
+            </div>
+            <div class="card">
+                <h3>Out of Stock<svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/></svg></h3>
+                <h2 class="red">12</h2>
+            </div>
+            <div class="card value-card">
+                <div>
+                    <h3>Total Value
+                        <svg viewBox="0 0 24 24">
+                            <path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/>
+                        </svg>
+                    </h3>
+                    <h2 class="cyan">₹ <span id="total-value">100</span></h2>
+                </div>
+                <button class="view-btn">View Details</button>
+            </div>
+        </div>
+        <div class="add-remove">
+            <button class="add-btn ar-btn">+ Add Item</button>
+        </div>
+    </div>
+
+    <div class="layout">
+        <div class="panel" id="panel-stock">
+            <h2>Stock Items</h2>
+            <div class="actions">
+                <input type="text" id="search-stock" class="search-input" placeholder="Search items...">
+                <button class="filter-btn"><svg viewBox="0 0 24 24"><path d="M3 5h18v2H3zm4 6h10v2H7zm2 6h6v2H9z"/></svg>Filter</button>
+            </div>
+            <div class="list" id="list-stock"></div>
+        </div>
+    </div>
+
+    <!-- Add Item Modal -->
+    <div id="stock-modal" class="modal">
+        <div class="modal-content">
+            <h2>Add New Item</h2>
+            <form id="stock-form">
+                <div class="form-group">
+                    <label>Item Name</label>
+                    <input type="text" name="name" required placeholder="Enter item name">
+                </div>
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <input type="number" name="quantity" required placeholder="Enter quantity">
+                </div>
+                <div class="form-group">
+                    <label>Price per unit</label>
+                    <input type="number" name="price" required placeholder="Enter price">
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select name="category" required>
+                        <option value="">Select category</option>
+                        <option value="furniture">Furniture</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="utilities">Utilities</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" onclick="closeStockModal()">Cancel</button>
+                    <button type="submit" class="submit-btn">Add Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Filter Modal -->
+    <div id="filter-modal" class="modal">
+        <div class="modal-content">
+            <h2>Filter Stock Items</h2>
+            <form id="filter-form">
+                <div class="form-group">
+                    <label>Category</label>
+                    <select name="filterCategory">
+                        <option value="">All Categories</option>
+                        <option value="furniture">Furniture</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="utilities">Utilities</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Stock Status</label>
+                    <select name="filterStatus">
+                        <option value="">All Status</option>
+                        <option value="inStock">In Stock</option>
+                        <option value="lowStock">Low Stock</option>
+                        <option value="outOfStock">Out of Stock</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" onclick="closeFilterModal()">Cancel</button>
+                    <button type="submit" class="submit-btn">Apply Filter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Update Item Modal -->
+    <div id="update-modal" class="modal">
+        <div class="modal-content">
+            <h2>Update Item</h2>
+            <form id="update-form">
+                <input type="hidden" name="itemId">
+                <div class="form-group">
+                    <label>Item Name</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <input type="number" name="quantity" required>
+                </div>
+                <div class="form-group">
+                    <label>Price per unit</label>
+                    <input type="number" name="price" required>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select name="category" required>
+                        <option value="furniture">Furniture</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="utilities">Utilities</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" onclick="closeUpdateModal()">Cancel</button>
+                    <button type="submit" class="submit-btn">Update Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Details Modal -->
+    <div id="details-modal" class="modal">
+        <div class="modal-content">
+            <h2>Stock Value Details</h2>
+            <div class="details-grid">
+                <div class="detail-item">
+                    <label>Total Items</label>
+                    <span id="detail-total">0</span>
+                </div>
+                <div class="detail-item">
+                    <label>Total Value</label>
+                    <span id="detail-value" class="highlight">₹ 0</span>
+                </div>
+                <div class="detail-item">
+                    <label>Average Item Value</label>
+                    <span id="detail-average">₹ 0</span>
+                </div>
+                <div class="detail-item">
+                    <label>Highest Value Item</label>
+                    <span id="detail-highest">None</span>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="cancel-btn" onclick="closeDetailsModal()">Close</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="stock.js"></script>
 </body>
 </html>

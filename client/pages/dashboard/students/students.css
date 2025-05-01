@@ -233,6 +233,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: start;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
 .list-def-item .item-info {
@@ -265,11 +267,19 @@ body {
   color: var(--accent-red);
   border: 2px solid var(--accent-red);
   margin-right: 12px;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.3s ease;
+}
+
+.list-def-item:hover .remove-def-btn {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .list-def-item .remove-def-btn:hover {
   background: var(--accent-red);
-  color: black;
+  color: white;
 }
 
 .list-def-item .send-link-btn {
@@ -280,6 +290,27 @@ body {
 .list-def-item .send-link-btn:hover {
   background: var(--accent-cyan);
   color: black;
+}
+
+.def-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.remove-def-btn {
+  background: transparent;
+  color: var(--accent-red);
+  border: 1px solid var(--accent-red);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.remove-def-btn:hover {
+  background: var(--accent-red);
+  color: white;
 }
 
 #add-def.add-btn {
@@ -305,6 +336,12 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+}
+
+.room-info {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-left: 12px;
 }
 
 .def-info {
@@ -338,7 +375,45 @@ body {
   gap: 6px;
   font-size: 14px;
   margin-left: 8px;
+}
+
+.update-time.check-in {
   color: var(--accent-cyan);
+}
+
+.update-time.check-out {
+  color: var(--accent-yellow);
+}
+
+.student-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.status-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.status-btn.checked-in {
+  background: var(--accent-cyan);
+  color: black;
+}
+
+.status-btn.checked-out {
+  background: var(--accent-yellow);
+  color: black;
+}
+
+.fade-out {
+  opacity: 0;
+  transform: translateX(-20px);
+  pointer-events: none;
 }
 
 @media (max-width: 1024px) {
@@ -384,6 +459,51 @@ body {
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 5px 15px var(--shadow);
+}
+
+/* Filter Modal Styles */
+.filter-modal-content {
+    max-width: 450px;
+}
+
+.filter-select {
+    width: 100%;
+    padding: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--text-muted);
+    border-radius: 8px;
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.filter-select:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 0 2px rgba(0, 242, 255, 0.1);
+}
+
+.filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0;
+    min-height: 40px;
+    padding: 8px;
+    border-radius: 8px;
+    background: var(--card-bg);
+}
+
+.filter-tag {
+    background: var(--container-bg);
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 0.9rem;
+    color: var(--accent-cyan);
+    border: 1px solid var(--accent-cyan);
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .form-group {
@@ -452,4 +572,9 @@ body {
 
 .submit-btn.remove {
     background: var(--accent-red);
+}
+
+.fade-out {
+    opacity: 0;
+    transform: translateX(-100%);
 }

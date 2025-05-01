@@ -89,6 +89,49 @@
         </div>
     </div>
     
+    <!-- Filter Modal -->
+    <div id="filter-modal" class="modal">
+        <div class="modal-content">
+            <h2>Filter Complaints</h2>
+            <form id="filter-form">
+                <div class="filter-group">
+                    <label class="filter-label">Status</label>
+                    <select name="filterStatus" class="filter-select">
+                        <option value="">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="urgent">Urgent</option>
+                        <option value="resolved">Resolved</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">Date Range</label>
+                    <select name="filterDate" class="filter-select">
+                        <option value="">All Time</option>
+                        <option value="today">Today</option>
+                        <option value="week">This Week</option>
+                        <option value="month">This Month</option>
+                    </select>
+                </div>
+                <div class="filter-tags"></div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" onclick="closeFilterModal()">Cancel</button>
+                    <button type="submit" class="submit-btn">Apply Filters</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Urgent Complaints List Modal -->
+    <div id="urgent-list-modal" class="modal">
+        <div class="modal-content wide-modal">
+            <h2>Urgent Complaints</h2>
+            <div class="urgent-list-container" id="urgent-list-container"></div>
+            <div class="form-actions">
+                <button type="button" class="cancel-btn" onclick="closeUrgentModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
     <script src="complaint.js"></script>
 </body>
 </html>

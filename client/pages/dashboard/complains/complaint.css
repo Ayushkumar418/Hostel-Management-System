@@ -190,6 +190,69 @@ body {
     cursor: pointer;
 }
 
+.filter-btn.active {
+    background: var(--accent-cyan);
+    color: black;
+    border-color: var(--accent-cyan);
+}
+
+.filter-select {
+    width: 100%;
+    padding: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--text-muted);
+    border-radius: 8px;
+    color: var(--text-light);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.filter-select option {
+    background: var(--card-bg);
+    color: var(--text-light);
+    padding: 8px;
+}
+
+.filter-group {
+    margin-bottom: 20px;
+}
+
+.filter-label {
+    display: block;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.filter-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+.filter-tag {
+    background: var(--card-bg);
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 0.9rem;
+    color: var(--accent-cyan);
+    border: 1px solid var(--accent-cyan);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-tag button {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
 @media (max-width: 1024px) {
     .layout {
         grid-template-columns: 1fr;
@@ -290,6 +353,16 @@ body {
 .resolve-btn {
     background: var(--accent-cyan);
     color: black;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.resolve-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--glow);
 }
 
 .urgent-btn {
@@ -316,6 +389,49 @@ body {
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 5px 15px var(--shadow);
+}
+
+.wide-modal {
+    max-width: 800px !important;
+}
+
+.urgent-item {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+.urgent-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.urgent-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--accent-red);
+}
+
+.urgent-date {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.urgent-description {
+    color: var(--text-light);
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.urgent-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-muted);
 }
 
 .form-group {
