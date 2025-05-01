@@ -35,19 +35,39 @@ const database = {
 
 // Database management methods
 const dbManager = {
-    addStudent(name, avatar) {
-        const id = `STU${Object.keys(database.students).length + 1}`.padStart(6, '0');
-        database.students[id] = { id, name, avatar, status: 'active' };
+    addStudent(studentData) {
+        const id = studentData.studentId;
+        // Check if ID already exists
+        if (database.students[id]) {
+            alert('Student ID already exists!');
+            return false;
+        }
+        
+        database.students[id] = {
+            id,
+            name: studentData.name,
+            rollNo: studentData.rollNo,
+            roomNo: studentData.roomNo,
+            course: studentData.course,
+            avatar: 'https://i.pravatar.cc/40?img=' + Math.floor(Math.random() * 70),
+            status: 'active'
+        };
         this.addUpdate(id, 'added');
         renderStudents();
+        return true;
     },
 
-    removeStudent(id) {
+    removeStudent(id, reason) {
         if (database.students[id]) {
             database.students[id].status = 'removed';
-            this.addUpdate(id, 'removed');
+            database.students[id].removalReason = reason;
+            database.students[id].removalDate = new Date().toLocaleDateString();
+            this.addUpdate(id, `removed - ${reason}`);
             renderStudents();
+            return true;
         }
+        alert('Student ID not found!');
+        return false;
     },
 
     addDefaulter(studentId, note, fine) {
@@ -151,32 +171,84 @@ function renderUpdates() {
     });
 }
 
+function showStudentModal() {
+    document.getElementById('student-modal').style.display = 'block';
+}
+
+function closeStudentModal() {
+    document.getElementById('student-modal').style.display = 'none';
+}
+
+function showRemoveModal() {
+    document.getElementById('remove-student-modal').style.display = 'block';
+}
+
+function closeRemoveModal() {
+    document.getElementById('remove-student-modal').style.display = 'none';
+}
+
 // Initialize renders
 renderStudents();
 renderDefaulters();
 renderUpdates();
 
 // Add event listeners
-document.getElementById('search-students').addEventListener('input', e => 
-    renderStudents(e.target.value.toLowerCase())
-);
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('search-students').addEventListener('input', e => 
+        renderStudents(e.target.value.toLowerCase())
+    );
 
-document.getElementById('search-defaulters').addEventListener('input', e => 
-    renderDefaulters(e.target.value.toLowerCase())
-);
+    document.getElementById('search-defaulters').addEventListener('input', e => 
+        renderDefaulters(e.target.value.toLowerCase())
+    );
 
-document.querySelector('.add-btn.ar-btn').addEventListener('click', () => {
-    dbManager.addStudent('New Student', 'https://i.pravatar.cc/40?img=' + Math.floor(Math.random() * 70));
-});
+    document.querySelector('.add-btn.ar-btn').addEventListener('click', showStudentModal);
 
-document.querySelector('.remove-btn.ar-btn').addEventListener('click', () => {
-    const id = prompt('Enter student ID to remove:');
-    if (id) dbManager.removeStudent(id);
-});
+    document.querySelector('.remove-btn.ar-btn').addEventListener('click', showRemoveModal);
 
-document.getElementById('add-def').addEventListener('click', () => {
-    const studentId = prompt('Enter student ID:');
-    if (studentId) {
-        dbManager.addDefaulter(studentId, 'New violation', '₹ 500');
-    }
+    document.getElementById('add-def').addEventListener('click', () => {
+        const studentId = prompt('Enter student ID:');
+        if (studentId) {
+            dbManager.addDefaulter(studentId, 'New violation', '₹ 500');
+        }
+    });
+
+    document.getElementById('student-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const studentData = {
+            studentId: formData.get('studentId'),
+            name: formData.get('name'),
+            rollNo: formData.get('rollNo'),
+            roomNo: formData.get('roomNo'),
+            course: formData.get('course')
+        };
+        
+        if (dbManager.addStudent(studentData)) {
+            closeStudentModal();
+            e.target.reset();
+        }
+    });
+
+    document.getElementById('remove-student-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const studentId = formData.get('studentId');
+        const reason = formData.get('reason');
+        
+        if (dbManager.removeStudent(studentId, reason)) {
+            closeRemoveModal();
+            e.target.reset();
+        }
+    });
+
+    // Close modal when clicking outside
+    window.onclick = (e) => {
+        if (e.target === document.getElementById('student-modal')) {
+            closeStudentModal();
+        }
+        if (e.target === document.getElementById('remove-student-modal')) {
+            closeRemoveModal();
+        }
+    };
 });

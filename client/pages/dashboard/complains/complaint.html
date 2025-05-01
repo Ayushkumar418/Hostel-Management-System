@@ -3,12 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complaint Page</title>
+    <title>Complaint Dashboard</title>
     <link rel="stylesheet" href="../../../src/output.css">
     <link rel="stylesheet" href="complaint.css">
 </head>
 <body>
-    <h1>This is a complaint page</h1>
+    <div class="first">
+        <div class="dashboard">
+            <div class="card">
+                <h3>Total Complaints
+                    <svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/></svg>
+                </h3>
+                <h2>245</h2>
+            </div>
+            <div class="card">
+                <h3>Active Complaints
+                    <svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/></svg>
+                </h3>
+                <h2 class="yellow">89</h2>
+            </div>
+            <div class="card">
+                <h3>Resolved
+                    <svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/></svg>
+                </h3>
+                <h2 class="cyan">156</h2>
+            </div>
+            <div class="card urgent-card">
+                <div>
+                    <h3>Urgent Complaints</h3>
+                    <h2 class="red">12</h2>
+                </div>
+                <button class="view-btn">View List</button>
+            </div>
+        </div>
+        <div class="add-remove">
+            <button class="add-btn ar-btn">+ New Complaint</button>
+        </div>
+    </div>
+
+    <div class="layout">
+        <div class="panel" id="panel-complaints">
+            <h2>Active Complaints<svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/></svg></h2>
+            <div class="actions">
+                <input type="text" id="search-complaints" class="search-input" placeholder="Search...">
+                <button class="filter-btn">
+                    <svg viewBox="0 0 24 24"><path d="M3 5h18v2H3zm4 6h10v2H7zm2 6h6v2H9z"/></svg>Filter
+                </button>
+            </div>
+            <div class="list" id="list-complaints"></div>
+        </div>
+
+        <div class="panel" id="panel-urgent">
+            <h2>Urgent Complaints<svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/></svg></h2>
+            <div class="list-urgent" id="list-urgent"></div>
+        </div>
+
+        <div class="panel" id="panel-resolved">
+            <h2>Recently Resolved<svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/></svg></h2>
+            <div class="list-resolved" id="list-resolved"></div>
+        </div>
+    </div>
+    
+    <!-- Add Complaint Modal -->
+    <div id="complaint-modal" class="modal">
+        <div class="modal-content">
+            <h2>New Complaint</h2>
+            <form id="complaint-form">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" name="title" required placeholder="Brief title of the complaint">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea name="description" required placeholder="Detailed description of the issue"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Student ID</label>
+                    <input type="text" name="studentId" required placeholder="Enter student ID">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" onclick="closeModal()">Cancel</button>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
     <script src="complaint.js"></script>
 </body>
 </html>

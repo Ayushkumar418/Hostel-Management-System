@@ -90,6 +90,61 @@
             <div class="list-update" id="list-updates"></div>
         </div>
     </div>
+    
+    <!-- Add Student Modal -->
+    <div id="student-modal" class="modal">
+        <div class="modal-content">
+            <h2>Add New Student</h2>
+            <form id="student-form">
+                <div class="form-group">
+                    <label>Student ID</label>
+                    <input type="text" name="studentId" required placeholder="Enter unique student ID">
+                </div>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" required placeholder="Student's full name">
+                </div>
+                <div class="form-group">
+                    <label>Roll Number</label>
+                    <input type="text" name="rollNo" required placeholder="Student's roll number">
+                </div>
+                <div class="form-group">
+                    <label>Room Number</label>
+                    <input type="text" name="roomNo" required placeholder="Assigned room number">
+                </div>
+                <div class="form-group">
+                    <label>Course</label>
+                    <input type="text" name="course" required placeholder="Student's course">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" onclick="closeStudentModal()">Cancel</button>
+                    <button type="submit" class="submit-btn">Add Student</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Remove Student Modal -->
+    <div id="remove-student-modal" class="modal">
+        <div class="modal-content">
+            <h2>Remove Student</h2>
+            <form id="remove-student-form">
+                <div class="form-group">
+                    <label>Student ID</label>
+                    <input type="text" name="studentId" required placeholder="Enter student ID to remove">
+                </div>
+                <div class="form-group">
+                    <label>Reason for Removal</label>
+                    <textarea name="reason" required placeholder="Enter reason for removal"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn" onclick="closeRemoveModal()">Cancel</button>
+                    <button type="submit" class="submit-btn remove">Remove Student</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="students.js"></script>
 </body>
 
