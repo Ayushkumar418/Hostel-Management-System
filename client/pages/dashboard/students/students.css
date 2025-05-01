@@ -1,0 +1,366 @@
+:root {
+  --bg: #1e1e1e;
+  --container-bg: #2b2b2b;
+  --card-bg: #171717;
+  --text-light: #e0e0e0;
+  --text-muted: #7a7a7a;
+  --accent-cyan: #00f2ff;
+  --accent-pink: #ff00d4;
+  --accent-red: #ff1a1a;
+  --accent-yellow: #ffe600;
+  --shadow: rgba(0, 0, 0, 0.6);
+  --btn-bg: #1a1a1a;
+  --btn-hover: #333;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 20px;
+  background: var(--bg);
+  font-family: "Segoe UI", sans-serif;
+  color: var(--text-light);
+}
+
+.first {
+  display: flex;
+}
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(120px, auto);
+  gap: 16px;
+  max-width: 80%;
+  background: var(--container-bg);
+  padding: 20px;
+  border-radius: 12px;
+}
+.card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 8px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card.header-only {
+  justify-content: flex-start;
+}
+.card h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+}
+.card h3 svg {
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  fill: var(--text-muted);
+  cursor: pointer;
+}
+.card h2 {
+  margin: 12px 0 0;
+  font-size: 32px;
+}
+.cyan {
+  color: var(--accent-cyan);
+}
+.pink {
+  color: var(--accent-pink);
+}
+.red {
+  color: var(--accent-red);
+}
+.yellow {
+  color: var(--accent-yellow);
+}
+.gray {
+  color: var(--text-light);
+}
+.fees-card {
+  grid-column: 4 / 5;
+  grid-row: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.view-btn {
+  color: white;
+  font-weight: bold;
+  background: var(--btn-bg);
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.view-btn:hover {
+  background: var(--btn-hover);
+}
+
+.add-remove {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem auto;
+}
+
+.ar-btn {
+  min-width: 300px;
+  padding: 15px 25px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: 2px solid;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-btn {
+  background: transparent;
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
+}
+
+.add-btn:hover {
+  background: var(--accent-cyan);
+  color: black;
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+}
+
+.remove-btn {
+  background: transparent;
+  color: var(--accent-red);
+  border-color: var(--accent-red);
+  box-shadow: 0 0 10px rgba(255, 26, 26, 0.2);
+}
+
+.remove-btn:hover {
+  background: var(--accent-red);
+  color: black;
+  box-shadow: 0 0 20px rgba(255, 26, 26, 0.4);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 2rem auto;
+}
+
+.panel {
+  background: var(--container-bg);
+  border-radius: 12px;
+  padding: 20px;
+  height: calc(100vh - 40px);
+  overflow-y: auto;
+}
+
+#panel-defaulters {
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.panel h2 svg {
+  margin-left: 8px;
+  width: 20px;
+  height: 20px;
+  fill: var(--text-muted);
+  cursor: pointer;
+}
+
+.actions,
+.actions-def {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.search-input,
+.filter-btn {
+  background: var(--card-bg);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--text-light);
+  font-size: 16px;
+}
+
+.search-input {
+  flex: 1;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.list-item,
+.list-def-item,
+.list-update-item {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.list-def-item {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.list-def-item .item-info {
+  margin-bottom: 16px;
+}
+
+.list-def-item .item-info img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.list-def-item .item-info span {
+  font-size: 24px;
+  margin-left: 16px;
+}
+
+.list-def-item .remove-def-btn,
+.list-def-item .send-link-btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.list-def-item .remove-def-btn {
+  color: var(--accent-red);
+  border: 2px solid var(--accent-red);
+  margin-right: 12px;
+}
+
+.list-def-item .remove-def-btn:hover {
+  background: var(--accent-red);
+  color: black;
+}
+
+.list-def-item .send-link-btn {
+  color: var(--accent-cyan);
+  border: 2px solid var(--accent-cyan);
+}
+
+.list-def-item .send-link-btn:hover {
+  background: var(--accent-cyan);
+  color: black;
+}
+
+#add-def.add-btn {
+  background: var(--accent-cyan);
+  color: black;
+  font-weight: bold;
+  padding: 8px 24px;
+  border-radius: 8px;
+  border: none;
+}
+
+#add-def.add-btn:hover {
+  opacity: 0.9;
+}
+
+.item-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.item-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.def-info {
+  margin: 8px 1rem;
+  font-size: 14px;
+}
+
+.def-tags {
+  display: flex;
+  gap: 8px;
+  margin: 0 0.8rem 1rem;
+}
+
+.def-tags span {
+  background: var(--card-bg);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  border: 1px solid var(--text-muted);
+}
+
+.update-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.update-time {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  margin-left: 8px;
+  color: var(--accent-cyan);
+}
+
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .panel {
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .fees-card {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}
+@media (max-width: 500px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+}

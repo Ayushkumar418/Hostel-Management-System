@@ -16,15 +16,17 @@
         <div class="signin-signup">
         
           <!-- 🔐 SIGN IN FORM with redirect -->
-          <form action="../main.html" class="sign-in-form">
+          <form action="../main.html" class="sign-in-form" id="loginForm" onsubmit="return validateLogin(event)">
             <h2 class="title">Sign In</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" required />
+              <input type="text" placeholder="Username" id="loginUsername" required />
+              <small class="error-text" id="loginUsernameError"></small>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" required />
+              <input type="password" placeholder="Password" id="loginPassword" required />
+              <small class="error-text" id="loginPasswordError"></small>
             </div>
             <button type="submit" class="btn solid">Login</button>
 
@@ -38,19 +40,22 @@
           </form>
 
           <!-- 🆕 SIGN UP FORM -->
-          <form action="" class="sign-up-form">
+          <form action="" class="sign-up-form" id="signupForm" onsubmit="return validateSignup(event)">
             <h2 class="title">Sign Up</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" placeholder="Username" id="signupUsername" required />
+              <small class="error-text" id="signupUsernameError"></small>
             </div>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" />
+              <input type="email" placeholder="Email" id="signupEmail" required />
+              <small class="error-text" id="signupEmailError"></small>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" placeholder="Password" id="signupPassword" required />
+              <small class="error-text" id="signupPasswordError"></small>
             </div>
             <input type="submit" value="Sign Up" class="btn solid" />
 
@@ -88,5 +93,6 @@
     </div>
 
     <script src="./app.js"></script>
+    <script src="./validation.js"></script>
   </body>
 </html>

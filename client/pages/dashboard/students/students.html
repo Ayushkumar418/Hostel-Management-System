@@ -1,11 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="students.css">
 </head>
+
 <body>
-    <h1 style="color: wheat;">This is a rooms section</h1>
+    <div class="first">
+        <div class="dashboard">
+            <div class="card">
+                <h3>Total Students
+                    <svg viewBox="0 0 24 24">
+                        <path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z" />
+                    </svg>
+                </h3>
+                <h2>3569</h2>
+            </div>
+            <div class="card">
+                <h3>In Hostel
+                    <svg viewBox="0 0 24 24">
+                        <path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z" />
+                    </svg>
+                </h3>
+                <h2 class="cyan">1569</h2>
+            </div>
+            <div class="card">
+                <h3>Outside Hostel
+                    <svg viewBox="0 0 24 24">
+                        <path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z" />
+                    </svg>
+                </h3>
+                <h2 class="gray">2500</h2>
+            </div>
+            <div class="card fees-card">
+                <div>
+                    <h3>Fees Defaulters</h3>
+                    <h2 class="yellow">150</h2>
+                </div>
+                <button class="view-btn">View List</button>
+            </div>
+            <div class="card">
+                <h3>Students Assigned
+                    <svg viewBox="0 0 24 24">
+                        <path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z" />
+                    </svg>
+                </h3>
+                <h2 class="pink">2569</h2>
+            </div>
+            <div class="card">
+                <h3>Students Removed
+                    <svg viewBox="0 0 24 24">
+                        <path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z" />
+                    </svg>
+                </h3>
+                <h2 class="red">1000</h2>
+            </div>
+        </div>
+        <div class="add-remove">
+            <button class="add-btn ar-btn">+Add Student</button>
+            <button class="remove-btn ar-btn">Remove Student</button>
+        </div>
+    </div>
+
+    <div class="layout">
+        <!-- Students Panel -->
+        <div class="panel" id="panel-students">
+            <h2>Students<svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/></svg></h2>
+            <div class="actions">
+                <input type="text" id="search-students" class="search-input" placeholder="Search...">
+                <button class="filter-btn"><svg viewBox="0 0 24 24"><path d="M3 5h18v2H3zm4 6h10v2H7zm2 6h6v2H9z"/></svg>Filter</button>
+            </div>
+            <div class="list" id="list-students"></div>
+        </div>
+        <!-- Defaulters Panel -->
+        <div class="panel" id="panel-defaulters">
+            <h2>Defaulters Students<svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/></svg></h2>
+            <div class="actions-def">
+                <input type="text" id="search-defaulters" class="search-input" placeholder="Search...">
+                <button class="add-btn" id="add-def">+Add</button>
+            </div>
+            <div class="list-def" id="list-defaulters"></div>
+        </div>
+        <!-- Update Panel -->
+        <div class="panel" id="panel-update">
+            <h2>Student Update<svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H14V3z"/></svg></h2>
+            <div class="list-update" id="list-updates"></div>
+        </div>
+    </div>
+    <script src="students.js"></script>
 </body>
+
 </html>
