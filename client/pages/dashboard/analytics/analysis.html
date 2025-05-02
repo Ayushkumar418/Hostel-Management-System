@@ -1,67 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>HMS Dashboard</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hostel Dashboard</title>
   <link rel="stylesheet" href="analysis.css">
 </head>
+
 <body>
-  <!-- Main Content -->
-  <div class="main">
-    <div class="grid">
-      <!-- Hostel Occupancy -->
-      <div class="card">
-        <h3>Hostel 1</h3>
-        <canvas id="h1"></canvas>
-        <div class="info">50%</div>
+  <!-- left side -->
+  <div class="left">
+    <!-- Occupancy Section -->
+    <div class="section occupancy-section">
+      <h3>Occupancy <span class="icon">↗</span></h3>
+      <div class="progress-container">
+        <div class="card">
+          <h3>Hostel 1 <span class="icon">↗</span></h3>
+          <div class="circle-wrap">
+            <svg class="circle" viewBox="0 0 36 36">
+              <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+              <path class="circle-progress cyan" stroke-dasharray="50, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            </svg>
+            <div class="percentage">50%</div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Hostel 2 <span class="icon">↗</span></h3>
+          <div class="circle-wrap">
+            <svg class="circle" viewBox="0 0 36 36">
+              <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+              <path class="circle-progress yellow" stroke-dasharray="75, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            </svg>
+            <div class="percentage">75%</div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Hostel 3 <span class="icon">↗</span></h3>
+          <div class="circle-wrap">
+            <svg class="circle" viewBox="0 0 36 36">
+              <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+              <path class="circle-progress pink" stroke-dasharray="95, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            </svg>
+            <div class="percentage">95%</div>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <h3>Hostel 2</h3>
-        <canvas id="h2"></canvas>
-        <div class="info">75%</div>
-      </div>
-      <div class="card">
-        <h3>Hostel 3</h3>
-        <canvas id="h3"></canvas>
-        <div class="info">95%</div>
-      </div>
+    </div>
 
-      <!-- Fees Collection -->
-      <div class="card" style="grid-column: span 2;">
-        <h3>Fees Collection</h3>
-        <canvas id="fees"></canvas>
-        <p>Expected: ₹52,00,000</p>
-        <p>Collected: ₹26,00,000</p>
-        <p>Remaining: ₹15,60,000</p>
-        <p>Overdue: ₹10,40,000</p>
+    <!-- Fees Collection Section -->
+    <div class="section fees-section">
+      <h3>Fees Collection <span>🖥️</span></h3>
+      <div class="fees-container">
+        <div class="fees-circle">
+          <svg width="120" height="120">
+            <circle class="background" />
+            <circle class="progress-yellow" style="stroke-dashoffset: 172.7;" />
+            <circle class="progress-pink" style="stroke-dashoffset: 172.7;" />
+          </svg>
+          <div class="text">50%</div>
+        </div>
+        <div class="fees-details">
+          <div>
+            <p>Expected</p>
+            <p>₹ 52,00,000</p>
+          </div>
+          <div>
+            <p>Remaining</p>
+            <p>₹ 15,00,000</p>
+          </div>
+          <div class="collected">
+            <p>Collected</p>
+            <p>₹ 26,00,000</p>
+          </div>
+          <div class="overdue">
+            <p>Overdue</p>
+            <p>₹ 10,40,000</p>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <!-- Complaints -->
-      <div class="card">
-        <h3>Complaints</h3>
-        <p>Total: 158</p>
-        <p>Resolved: 96</p>
-        <p>Open: 62</p>
-      </div>
-
-      <!-- Emergency -->
-      <div class="card emergency">
-        <h3>Emergency Only</h3>
-        <button>EMERGENCY</button>
-      </div>
-
-      <!-- Student Update -->
-      <div class="card" style="grid-column: span 2;">
-        <h3>Student Updates</h3>
-        <div class="student"><img src="https://i.pravatar.cc/30?img=1" /> Ayush Kumar - 12:30</div>
-        <div class="student"><img src="https://i.pravatar.cc/30?img=2" /> Abhay Kumar - 12:30</div>
-        <div class="student"><img src="https://i.pravatar.cc/30?img=3" /> Ayush - 12:30</div>
-        <div class="student"><img src="https://i.pravatar.cc/30?img=4" /> Ramakant Sharma - 12:30</div>
-        <div class="student"><img src="https://i.pravatar.cc/30?img=5" /> Ramakant Sharma - 12:30</div>
+    <!-- Complaints Section -->
+    <div class="section">
+      <h3>Complaints <span>🖥️</span></h3>
+      <div class="complaints-container">
+        <div class="complaints-bar">
+          <div class="filled-cyan"></div>
+          <div class="filled-yellow"></div>
+        </div>
+        <div class="complaints-details">
+          <div>
+            <p>Total Complaints</p>
+            <p>158</p>
+          </div>
+          <div>
+            <p>Resolved</p>
+            <p>96</p>
+          </div>
+          <div>
+            <p>Open</p>
+            <p>62</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <div class="right">
+    <!-- Student Update Section --> 
+    <div class="section update-section">
+      <h3>Student Update <span>🖥️</span></h3>
+      <div class="student-list">
+        <div class="student-item">
+          <img src="https://via.placeholder.com/40" alt="Student">
+          <div class="name">Ayush Kumar</div>
+          <div class="time">12:30</div>
+        </div>
+        <div class="student-item">
+          <img src="https://via.placeholder.com/40" alt="Student">
+          <div class="name">Abhay Kumar</div>
+          <div class="time">12:30</div>
+        </div>
+        <div class="student-item">
+          <img src="https://via.placeholder.com/40" alt="Student">
+          <div class="name">Ayush</div>
+          <div class="time">12:30</div>
+        </div>
+        <div class="student-item">
+          <img src="https://via.placeholder.com/40" alt="Student">
+          <div class="name">Rohit Sharma</div>
+          <div class="time">12:30</div>
+        </div>
+        <div class="student-item">
+          <img src="https://via.placeholder.com/40" alt="Student">
+          <div class="name">Mohit Kumar</div>
+          <div class="time">12:30</div>
+        </div>
+        <div class="student-item">
+          <img src="https://via.placeholder.com/40" alt="Student">
+          <div class="name">Ayush Kumar</div>
+          <div class="time">12:30</div>
+        </div>
+        <div class="student-item">
+          <img src="https://via.placeholder.com/40" alt="Student">
+          <div class="name">Abhay Kumar</div>
+          <div class="time">12:30</div>
+        </div>
+        <div class="student-item">
+          <img src="https://via.placeholder.com/40" alt="Student">
+          <div class="name">Ayush</div>
+          <div class="time">12:30</div>
+        </div>
+        <div class="student-item">
+          <img src="https://via.placeholder.com/40" alt="Student">
+          <div class="name">Rohit Sharma</div>
+          <div class="time">12:30</div>
+        </div>
+        <div class="student-item">
+          <img src="https://via.placeholder.com/40" alt="Student">
+          <div class="name">Mohit Kumar</div>
+          <div class="time">12:30</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Emergency Section -->
+    <div class="emergency-section">
+      <div class="emergency-icon">
+        <div class="power-icon"></div>
+        <div class="ring ring1"></div>
+        <div class="ring ring2"></div>
+        <div class="ring ring3"></div>
+      </div>
+      <p>Press only in Case of Emergency</p>
+      <button class="emergency-button">EMERGENCY</button>
+    </div>
+  </div>
+
   <script src="analysis.js"></script>
 </body>
+
 </html>
