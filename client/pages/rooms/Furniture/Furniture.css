@@ -160,4 +160,58 @@
   .cyan {
     color: #00f0ff;
   }
-  
+
+  /* Status Badge */
+  .status-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  .status-badge.new {
+    background: #00BDB3;
+    color: white;
+  }
+
+  .status-badge.good {
+    background: #4CAF50;
+    color: white;
+  }
+
+  .status-badge.damaged {
+    background: #f44336;
+    color: white;
+  }
+
+  /* Modal */
+  .modal input,
+  .modal select {
+    color: white;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+  }
+
+  .modal input:focus,
+  .modal select:focus {
+    outline: none;
+    border-color: #00BDB3;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .search-box {
+        width: 100%;
+    }
+    
+    .buttons {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+  }

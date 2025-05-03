@@ -16,56 +16,6 @@ body {
     gap: 2rem;
   }
 
-  .dashboard-top {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-  }
-
-  .donut-wrapper {
-    position: relative;
-    width: 180px;
-    height: 180px;
-  }
-
-  #donutChart {
-    width: 180px;
-    height: 180px;
-  }
-
-  .center-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.5rem;
-    font-weight: bold;
-    pointer-events: none;
-  }
-
-  .stat-card {
-    background-color: #111;
-    padding: 1rem 1.5rem;
-    border-radius: 16px;
-    min-width: 180px;
-  }
-
-  .stat-card p {
-    margin: 0;
-    font-size: 1rem;
-  }
-
-  .stat-card .value {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin: 0.2rem 0;
-  }
-
-  .stat-card i {
-    float: right;
-    color: inherit;
-  }
-
   .header {
     display: flex;
     justify-content: space-between;

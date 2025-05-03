@@ -59,3 +59,68 @@
   font-weight: bold;
   text-align: center;
 }
+
+.modal {
+  transition: all 0.3s ease;
+  max-height: 100vh;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal > div {
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+
+.modal > div::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal > div::-webkit-scrollbar-track {
+  background: #111;
+  border-radius: 4px;
+}
+
+.modal > div::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+.modal > div::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+.modal input,
+.modal textarea {
+  color: white;
+  border: 1px solid #3a3a3a;
+}
+
+.modal input:focus,
+.modal textarea:focus {
+  outline: none;
+  border-color: #06b6d4;
+}
+
+/* Modal Styles */
+#addHostelModal input {
+  color: white;
+  border: 1px solid #333;
+  transition: all 0.3s ease;
+}
+
+#addHostelModal input:focus {
+  outline: none;
+  border-color: #00BDB3;
+}
+
+#addHostelModal input::placeholder {
+  color: #666;
+}
+
+#addHostelModal .modal-close:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}

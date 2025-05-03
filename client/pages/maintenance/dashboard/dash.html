@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance Dashboard</title>
+    <link rel="stylesheet" href="dash.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Overview Stats -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon pending">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Pending Tasks</h3>
+                    <p class="stat-value">24</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon progress">
+                    <i class="fas fa-spinner"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>In Progress</h3>
+                    <p class="stat-value">12</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon completed">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Completed</h3>
+                    <p class="stat-value">156</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon accessories">
+                    <i class="fas fa-box-open"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Total Accessories</h3>
+                    <p class="stat-value">487</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon complaints">
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Active Complaints</h3>
+                    <p class="stat-value">18</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon maintenance">
+                    <i class="fas fa-wrench"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>Under Maintenance</h3>
+                    <p class="stat-value">12</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <button class="action-btn"><i class="fas fa-plus"></i> New Complaint</button>
+            <button class="action-btn"><i class="fas fa-clipboard-list"></i> Stock Check</button>
+            <button class="action-btn"><i class="fas fa-tools"></i> Schedule Maintenance</button>
+        </div>
+
+        <!-- Equipment Status -->
+        <div class="overview-section">
+            <div class="section-header">
+                <h2>Equipment Status</h2>
+                <div class="header-actions">
+                    <select class="filter-select">
+                        <option value="all">All Categories</option>
+                        <option value="electrical">Electrical</option>
+                        <option value="furniture">Furniture</option>
+                        <option value="plumbing">Plumbing</option>
+                    </select>
+                </div>
+            </div>
+            <div class="equipment-grid" id="equipmentContainer">
+                <!-- Equipment cards will be inserted by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Recent Maintenance Tasks -->
+        <div class="tasks-section">
+            <div class="section-header">
+                <h2>Recent Maintenance Tasks</h2>
+                <button class="add-task-btn">
+                    <i class="fas fa-plus"></i> New Task
+                </button>
+            </div>
+            <div class="tasks-grid" id="tasksContainer">
+                <!-- Tasks will be inserted by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Recent Complaints -->
+        <div class="overview-section">
+            <div class="section-header">
+                <h2>Recent Complaints</h2>
+                <button class="view-all-btn">View All</button>
+            </div>
+            <div class="complaints-list" id="complaintsContainer">
+                <!-- Complaints will be inserted by JavaScript -->
+            </div>
+        </div>
+    </div>
+    <script src="dash.js"></script>
+</body>
+</html>

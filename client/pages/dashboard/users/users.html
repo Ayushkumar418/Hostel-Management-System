@@ -4,10 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="users.css">
-    <title>Users</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <title>User Management</title>
 </head>
 <body>
-    <h1>This is user page</h1>
+    <div class="container">
+        <div class="header">
+            <div class="title-section">
+                <h1>User Management</h1>
+                <span class="user-count">Total Users: 156</span>
+            </div>
+            <button class="add-user-btn">
+                <i class="fas fa-plus"></i> Add New User
+            </button>
+        </div>
+
+        <div class="search-filter-bar">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search users...">
+            </div>
+            <div class="filters">
+                <select>
+                    <option value="">Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="staff">Staff</option>
+                    <option value="student">Student</option>
+                </select>
+                <select>
+                    <option value="">Status</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+                <button class="filter-btn">
+                    <i class="fas fa-filter"></i> More Filters
+                </button>
+            </div>
+        </div>
+
+        <div class="users-grid" id="usersContainer">
+            <!-- Users will be inserted here by JavaScript -->
+        </div>
+    </div>
     <script src="users.js"></script>
 </body>
 </html>

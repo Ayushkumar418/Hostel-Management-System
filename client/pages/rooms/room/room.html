@@ -2,85 +2,113 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hostel Dashboard</title>
+  <title>Hostel Dashboard - Rooms</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="room.css">
 </head>
-<body>
-
-  <div class="search-bar">
-    🔍
-    <input type="text" placeholder="Search...">
+<body class="bg-[#111] text-white p-6">
+  <div class="head-container flex items-center justify-between bg-[#111] rounded-xl p-4">
+    <div class="search-bar flex items-center gap-3">
+      🔍
+      <input type="text" placeholder="Search rooms..." class="bg-transparent border-none outline-none flex-1">
+    </div>
+    <button class="add-btn bg-cyan-500 hover:bg-cyan-600 rounded-xl flex items-center justify-center text-lg font-bold">
+      +Add Rooms
+    </button>
   </div>
 
-  <div class="top-section">
-    <div class="card">
-      <div>Total Rooms</div>
-      <h2>456</h2>
+  <div class="top-section grid grid-cols-6 gap-4 mt-6">
+    <div class="card bg-[#1a1a1a] p-4 rounded-xl block">
+      <div class="text-gray-400">Total Rooms</div>
+      <h2 class="text-2xl font-bold mt-2">456</h2>
     </div>
-    <button class="add-btn">+Add Rooms</button>
-    <div class="card">
-      <div>Occupied</div>
-      <h2 class="blue">358</h2>
+    <div class="card bg-[#1a1a1a] p-4 rounded-xl">
+      <div class="text-gray-400">Occupied</div>
+      <h2 class="text-2xl font-bold mt-2 text-blue-500">358</h2>
     </div>
-    <div class="card">
-      <div>Vacant</div>
-      <h2 class="yellow">98</h2>
+    <div class="card bg-[#1a1a1a] p-4 rounded-xl">
+      <div class="text-gray-400">Vacant</div>
+      <h2 class="text-2xl font-bold mt-2 text-yellow-500">98</h2>
     </div>
-    <div class="card">
-      <div>Types</div>
-      <h2>14</h2>
+    <div class="card bg-[#1a1a1a] p-4 rounded-xl">
+      <div class="text-gray-400">Types</div>
+      <h2 class="text-2xl font-bold mt-2">14</h2>
     </div>
-    <div class="card">
-      <div>Tenants</div>
-      <h2>750</h2>
-    </div>
-  </div>
-
-  <div class="bunker">
-    <div class="bunker-header">
-      <div class="bunker-info">🛏️ 6 Bedded Bunker</div>
-      <button>Edit</button>
-    </div>
-    <div class="bunker-details">
-      <div class="card">
-        <div>Total Rooms</div>
-        <h2>125</h2>
-      </div>
-      <div class="card">
-        <div>Rent Per Tenant</div>
-        <h2>₹50,000</h2>
-      </div>
-      <div class="card">
-        <div>Tenants</div>
-        <h2>658</h2>
-      </div>
-      <div class="card">
-        <div>Furniture</div>
-        <h2>125</h2>
-      </div>
-    </div>
-    <div class="distribution-bar">
-      <div class="distribution-fill"></div>
+    <div class="card bg-[#1a1a1a] p-4 rounded-xl">
+      <div class="text-gray-400">Tenants</div>
+      <h2 class="text-2xl font-bold mt-2">750</h2>
     </div>
   </div>
 
-  <div class="bottom-section">
-    <div class="collection">
-      <canvas id="collectionChart" width="300" height="300"></canvas>
-    </div>
-    <div class="furniture">
-      <h3>Furniture 🔗</h3>
-      <div class="furniture-list">
-        <div class="furniture-item"><span>Ceiling Fan</span><span>50</span></div>
-        <div class="furniture-item"><span>Center Table</span><span>12</span></div>
-        <div class="furniture-item"><span>Chairs</span><span>123</span></div>
-        <div class="furniture-item"><span>Refrigerator</span><span>06</span></div>
-        <div class="furniture-item"><span>Kettle</span><span>12</span></div>
+  <!-- Room Types Section -->
+  <div class="room-types grid grid-cols-2 gap-6 mt-6">
+    <div class="bunker bg-[#1a1a1a] rounded-xl p-4">
+      <div class="bunker-header flex justify-between items-center mb-4">
+        <div class="bunker-info text-lg font-semibold">🛏️ 6 Bedded Bunker</div>
+        <button class="bg-cyan-500 hover:bg-cyan-600 rounded-lg px-4 py-2 text-white">Edit</button>
+      </div>
+      <div class="bunker-details grid grid-cols-2 gap-4">
+        <div class="card bg-[#222] p-4 rounded-lg">
+          <div class="text-gray-400">Total Rooms</div>
+          <h2 class="text-xl font-bold mt-2">125</h2>
+        </div>
+        <div class="card bg-[#222] p-4 rounded-lg">
+          <div class="text-gray-400">Rent Per Tenant</div>
+          <h2 class="text-xl font-bold mt-2">₹50,000</h2>
+        </div>
+        <div class="card bg-[#222] p-4 rounded-lg">
+          <div class="text-gray-400">Tenants</div>
+          <h2 class="text-xl font-bold mt-2">658</h2>
+        </div>
+        <div class="card bg-[#222] p-4 rounded-lg">
+          <div class="text-gray-400">Furniture</div>
+          <h2 class="text-xl font-bold mt-2">125</h2>
+        </div>
+      </div>
+      <div class="distribution-bar bg-gray-700 rounded-full mt-4">
+        <div class="distribution-fill bg-cyan-500 h-2 rounded-full"></div>
       </div>
     </div>
   </div>
 
-<script src="room.js"></script>
+  <!-- Add Room Modal -->
+  <div id="addRoomModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="bg-[#222] p-6 rounded-2xl w-[500px]">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-semibold">Add New Room</h2>
+        <button class="modal-close text-gray-400 hover:text-white">✕</button>
+      </div>
+      <form id="addRoomForm" class="space-y-4">
+        <div class="grid grid-cols-2 gap-4">
+          <input type="text" name="roomNumber" placeholder="Room Number" class="bg-[#111] rounded-lg px-4 py-3">
+          <select name="roomType" class="bg-[#111] rounded-lg px-4 py-3">
+            <option value="">Select Type</option>
+            <option value="bunker">6 Bedded Bunker</option>
+            <option value="double">Double Sharing</option>
+            <option value="single">Single Room</option>
+          </select>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <input type="number" name="capacity" placeholder="Capacity" class="bg-[#111] rounded-lg px-4 py-3">
+          <input type="number" name="rentPerBed" placeholder="Rent per bed" class="bg-[#111] rounded-lg px-4 py-3">
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <input type="text" name="floor" placeholder="Floor Number" class="bg-[#111] rounded-lg px-4 py-3">
+          <select name="status" class="bg-[#111] rounded-lg px-4 py-3">
+            <option value="">Room Status</option>
+            <option value="available">Available</option>
+            <option value="occupied">Occupied</option>
+            <option value="maintenance">Maintenance</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-600 text-white py-3 rounded-lg">
+          Add Room
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="room.js"></script>
 </body>
 </html>

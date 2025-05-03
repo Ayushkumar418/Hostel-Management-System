@@ -1,46 +1,101 @@
 const studentList = document.getElementById('studentList');
 
-const studentData = [
-  { name: "Ramakant Sharma", time: "12:30", status: "in", room: "101", hostel: "H1", img: "https://i.pravatar.cc/150?img=1" },
-  { name: "John Doe", time: "12:45", status: "out", room: "102", hostel: "H1", img: "https://i.pravatar.cc/150?img=2" },
-  { name: "Sarah Wilson", time: "13:00", status: "in", room: "103", hostel: "H1", img: "https://i.pravatar.cc/150?img=3" },
-  { name: "Mike Johnson", time: "13:15", status: "out", room: "104", hostel: "H1", img: "https://i.pravatar.cc/150?img=4" },
-  { name: "Emily Brown", time: "13:30", status: "in", room: "105", hostel: "H1", img: "https://i.pravatar.cc/150?img=5" },
-  { name: "Alex Turner", time: "13:45", status: "out", room: "106", hostel: "H1", img: "https://i.pravatar.cc/150?img=6" },
-  { name: "Lisa Anderson", time: "14:00", status: "in", room: "107", hostel: "H1", img: "https://i.pravatar.cc/150?img=7" },
-  { name: "David Clark", time: "14:15", status: "out", room: "108", hostel: "H1", img: "https://i.pravatar.cc/150?img=8" },
+const studentsData = [
+    {
+        name: "Ramakant Sharma",
+        photo: "https://randomuser.me/api/portraits/men/1.jpg",
+        time: "12:30",
+        status: "in",
+        room: "101",
+        hostel: "H1"
+    },
+    {
+        name: "John Doe",
+        photo: "https://randomuser.me/api/portraits/men/2.jpg",
+        time: "12:45",
+        status: "out",
+        room: "102",
+        hostel: "H1"
+    },
+    {
+        name: "Sarah Wilson",
+        photo: "https://randomuser.me/api/portraits/women/1.jpg",
+        time: "13:00",
+        status: "in",
+        room: "103",
+        hostel: "H1"
+    },
+    {
+        name: "Mike Johnson",
+        photo: "https://randomuser.me/api/portraits/men/3.jpg",
+        time: "13:15",
+        status: "out",
+        room: "104",
+        hostel: "H1"
+    }
 ];
 
-studentData.forEach(student => {
-  const card = document.createElement('div');
-  card.className = 'student-card';
-
-  const inOutIcon = student.status === 'in' 
-    ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-         <path d="M11 16l-2-2m0 0l-2-2m2 2l2-2m-2 2l-2 2m2-2l2 2" stroke="#00FFFF" stroke-width="2" stroke-linecap="round"/>
-         <circle cx="12" cy="12" r="11" stroke="#00FFFF" stroke-width="2"/>
-       </svg>`
-    : `<svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-         <path d="M12 4v8M8 8l4-4 4 4" stroke="#FFD700" stroke-width="2" stroke-linecap="round"/>
-         <circle cx="12" cy="12" r="11" stroke="#FFD700" stroke-width="2"/>
-       </svg>`;
-
-  card.innerHTML = `
-    <div class="profile-section">
-      <img src="${student.img}" alt="profile" class="student-img" />
-      <span class="student-name">${student.name}</span>
-      <span class="student-time ${student.status}-status">
-        ${inOutIcon} ${student.time}
-      </span>
-    </div>
-    <div class="info-section">
-      <span class="room-info">
-        <i class="bed-icon">🛏</i> Room : ${student.room}
-      </span>
-      <span class="hostel-info">
-        <i class="building-icon">🏢</i> Hostel : ${student.hostel}
-      </span>
-    </div>
-  `;
-  studentList.appendChild(card);
+studentsData.forEach(student => {
+    studentList.innerHTML += `
+        <div class="student-card">
+            <div class="student-profile">
+                <img src="${student.photo}" alt="${student.name}">
+                <span class="student-name">${student.name}</span>
+            </div>
+            <div class="student-info">
+                <div class="status-indicator status-${student.status}">
+                    <i class="fas ${student.status === 'in' ? 'fa-sign-in-alt' : 'fa-sign-out-alt'}"></i>
+                    ${student.status === 'in' ? 'Inside' : 'Outside'}
+                </div>
+                <div class="time-badge">
+                    <i class="far fa-clock"></i>
+                    ${student.time}
+                </div>
+                <div class="room-info">
+                    <i class="fas fa-door-open"></i>
+                    Room: ${student.room}
+                    <i class="fas fa-building"></i>
+                    Hostel: ${student.hostel}
+                </div>
+            </div>
+        </div>
+    `;
 });
+
+// Initialize donut chart
+const ctx = document.getElementById('donutChart').getContext('2d');
+const donutChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ['Inside', 'Outside'],
+    datasets: [{
+      data: [4852, 694],
+      backgroundColor: ['#00ffff', '#ff00ff'],
+      borderWidth: 0,
+      cutout: '80%'
+    }]
+  },
+  options: {
+    plugins: {
+      legend: {
+        display: false
+      }
+    },
+    responsive: true,
+    maintainAspectRatio: false
+  }
+});
+
+// Update stats
+function updateStats(data) {
+  document.querySelector('.stat-card:nth-child(2) .value').textContent = data.totalStudents;
+  document.querySelector('.stat-card:nth-child(3) .value').textContent = data.insideHostel;
+  document.querySelector('.stat-card:nth-child(4) .value').textContent = data.onLeave;
+  
+  const percentage = Math.round((data.insideHostel / data.totalStudents) * 100);
+  document.querySelector('.center-text').textContent = `${percentage}%`;
+  
+  // Update chart data
+  donutChart.data.datasets[0].data = [data.insideHostel, data.onLeave];
+  donutChart.update();
+}
