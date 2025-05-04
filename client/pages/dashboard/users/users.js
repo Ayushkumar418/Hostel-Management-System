@@ -124,12 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
     statusSelect.addEventListener('change', (e) => {
         filterUsers(searchInput.value, roleSelect.value, e.target.value);
     });
-
-    // Add new user button handler
-    document.querySelector('.add-user-btn').addEventListener('click', () => {
-        // Implement add user functionality
-        console.log('Add user clicked');
-    });
 });
 
 // Optional: Add real-time updates

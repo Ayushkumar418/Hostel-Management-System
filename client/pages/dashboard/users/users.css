@@ -29,25 +29,6 @@ body {
     font-size: 0.9rem;
 }
 
-.add-user-btn {
-    background-color: #00ffff;
-    color: #1e1e1e;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: background-color 0.3s;
-}
-
-.add-user-btn:hover {
-    background-color: #00cccc;
-}
-
 .search-filter-bar {
     display: flex;
     justify-content: space-between;
